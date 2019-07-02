@@ -62,7 +62,7 @@ namespace Cells{
 			///  //Setting the color of the right border
 			///  style->GetIBorders()->GetObjectByIndex(BorderType_RightBorder)->SetColor(Color::GetBlack());
 			///  
-			///  cell->SetStyle(style);
+			///  cell->SetIStyle(style);
 			///  
 			///  //Saving the Excel file
 			///  workbook->Save(new String("C:\\book1.xls"));
@@ -70,8 +70,6 @@ namespace Cells{
 			///  </code>
 			/// 
 			///  </example>
-			/// 
-			/// 
 	class ASPOSE_CELLS_API IBorderCollection : public Aspose::Cells::System::Object
 	{
 		public:
@@ -79,56 +77,38 @@ namespace Cells{
 			///  Gets the <see cref="IBorder" />
 			///  element at the specified index.
 			///  </summary>
-			/// 
 			/// <param name="borderType" >The border to be retrieved.</param>
-			/// 
 			/// <returns>The element at the specified index.</returns>
-			/// 
-			/// 
 			 virtual intrusive_ptr<Aspose::Cells::IBorder> 		GetObjectByIndex(Aspose::Cells::BorderType borderType)=0;
 			/// <summary>
 			/// Sets the <see cref="System.Drawing.Color" />
 			///  of all borders in the collection.
 			/// </summary>
-			/// 
 			/// <param name="color" >Borders' <see cref="System.Drawing.Color" />
 			/// .</param>
-			/// 
-			/// 
 			 virtual void SetColor(intrusive_ptr<Aspose::Cells::System::Drawing::Color> color)=0;
 			/// <summary>
 			/// Sets the style of all borders of the collection.
 			/// </summary>
-			/// 
 			/// <param name="style" >Borders' style</param>
-			/// 
-			/// 
 			 virtual void SetStyle(Aspose::Cells::CellBorderType style)=0;
 			/// <summary>
 			/// Gets the <see cref="System.Drawing.Color" />
 			///  of Diagonal lines.
 			/// </summary>
-			/// 
-			/// 
 			 virtual intrusive_ptr<Aspose::Cells::System::Drawing::Color> GetDiagonalColor()=0;
 			/// <summary>
 			/// Sets the <see cref="System.Drawing.Color" />
 			///  of Diagonal lines.
 			/// </summary>
-			/// 
-			/// 
 			 virtual void SetDiagonalColor(intrusive_ptr<Aspose::Cells::System::Drawing::Color> value)=0;
 			/// <summary>
 			/// Gets the style of Diagonal lines.
 			/// </summary>
-			/// 
-			/// 
 			 virtual Aspose::Cells::CellBorderType GetDiagonalStyle()=0;
 			/// <summary>
 			/// Sets the style of Diagonal lines.
 			/// </summary>
-			/// 
-			/// 
 			 virtual void SetDiagonalStyle(Aspose::Cells::CellBorderType value)=0;
 
 	};

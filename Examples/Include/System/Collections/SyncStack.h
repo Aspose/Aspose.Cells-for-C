@@ -44,7 +44,7 @@ namespace Aspose {
 						ObjectPtr result;
 						ObjectPtr tmp = this->_s->Clone();
 						intrusive_ptr<Stack> tmpSta = dynamic_pointer_cast<Stack>(tmp);
-						result = new SyncStack(tmpSta);
+						result = NEW SyncStack(tmpSta);
 						return result;
 					}
 					void Clear()

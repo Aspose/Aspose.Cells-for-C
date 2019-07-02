@@ -30,9 +30,9 @@ namespace Aspose {
 				int32_t Read(intrusive_ptr<BString> buffer, int32_t offset, int32_t count);
 				void Write(intrusive_ptr<BString> buffer, int32_t offset, int32_t count);
 
-				bool GetCanRead() { return _innerStream->GetCanRead(); }
-				bool GetCanWrite() { return _innerStream->GetCanWrite(); }
-				bool GetCanSeek() { return false; }
+				bool CanRead() { return _innerStream->CanRead(); }
+				bool CanWrite() { return _innerStream->CanWrite(); }
+				bool CanSeek() { return false; }
 				void Flush() { _innerStream->Flush(); }
 
 				int64_t GetLength();

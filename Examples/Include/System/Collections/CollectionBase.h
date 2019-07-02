@@ -7,6 +7,7 @@
 #include "System/Collections/ICollection.h"
 #include "System/Collections/IEnumerable.h"
 #include "System/Collections/IList.h"
+#include "System/Collections/ArrayList.h"
 
 namespace Aspose {
 	namespace Cells {
@@ -22,7 +23,6 @@ namespace Aspose {
 	namespace Cells { 
 		namespace System{
 			namespace Collections {
-				class ArrayList;
 				class ASPOSE_CELLS_API CollectionBase : public Object, public IList
 				{
 				private:

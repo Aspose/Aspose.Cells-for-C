@@ -9,7 +9,7 @@
 #include "System/Type.h"
 #include "System/Globalization/NumberStyles.h"
 #include "System/Globalization/DigitShapes.h"
-#include "System/Globalization/CultureInfo.h"
+//#include "System/Globalization/CultureInfo.h"
 
 using namespace Aspose::Cells::System;
 
@@ -17,6 +17,7 @@ namespace Aspose {
 	namespace Cells {
 		namespace System {
 			namespace Globalization {
+				class CultureInfo;
 				class ASPOSE_CELLS_API NumberFormatInfo : public Object, public IFormatProvider
 				{
 				private:
@@ -26,6 +27,7 @@ namespace Aspose {
 				public:
 					NumberFormatInfo(CultureInfo* culture, bool isInvariantCulture);
 					NumberFormatInfo(CultureInfo* cultureData);
+					NumberFormatInfo();///@Jack
 					virtual ~NumberFormatInfo();
 					virtual void add_ref() {
 						++ref_count_;

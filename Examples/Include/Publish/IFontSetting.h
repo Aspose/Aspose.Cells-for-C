@@ -19,6 +19,13 @@ namespace Aspose {
 }
 namespace Aspose{
 namespace Cells{
+		namespace Drawing {
+			enum PresetWordArtStyle;
+		}
+	}
+}
+namespace Aspose{
+namespace Cells{
 			/// <summary>
 			///  Represents a range of characters within the cell text.
 			///  </summary>
@@ -50,35 +57,31 @@ namespace Cells{
 			///  </code>
 			/// 
 			///  </example>
-			/// 
-			/// 
 	class ASPOSE_CELLS_API IFontSetting : public Aspose::Cells::System::Object
 	{
 		public:
 			/// <summary>
 			/// Gets the type of text node.
 			/// </summary>
-			/// 
-			/// 
 			  virtual Aspose::Cells::Drawing::Texts::TextNodeType GetType()=0;
 			/// <summary>
 			/// Gets the start index of the characters.
 			/// </summary>
-			/// 
-			/// 
 			 virtual Aspose::Cells::System::Int32 GetStartIndex()=0;
 			/// <summary>
 			/// Gets the length of the characters.
 			/// </summary>
-			/// 
-			/// 
 			 virtual Aspose::Cells::System::Int32 GetLength()=0;
 			/// <summary>
 			/// Returns the font of this object.
 			/// </summary>
-			/// 
-			/// 
 			 virtual intrusive_ptr<Aspose::Cells::IFont> 		GetIFont()=0;
+			/// <summary>
+			/// Sets the preset WortArt style.
+			/// </summary>
+			/// <param name="style" >The preset WortArt style.</param>
+			/// <remarks>Only for the text of shape/chart.</remarks>
+			 virtual void SetWordArtStyle(Aspose::Cells::Drawing::PresetWordArtStyle style)=0;
 
 	};
 }

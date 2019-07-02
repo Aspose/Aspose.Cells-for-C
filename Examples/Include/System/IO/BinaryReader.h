@@ -20,6 +20,7 @@ namespace Aspose {
 				class ASPOSE_CELLS_API BinaryReader : public Object, public IDisposable
 				{
 				public:
+					BinaryReader(){}
 					BinaryReader(StreamPtr input);
 					BinaryReader(StreamPtr input, EncodingPtr encoding);
 					virtual ~BinaryReader();

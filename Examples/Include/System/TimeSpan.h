@@ -43,6 +43,7 @@ namespace Aspose {
 				static intrusive_ptr<TimeSpan> FromMilliseconds(double value);
 				static intrusive_ptr<TimeSpan> FromTicks(int64_t value);
 				static intrusive_ptr<TimeSpan> FromMinutes(double value);
+				static intrusive_ptr<TimeSpan> FromDays(double value);
 				intrusive_ptr<TimeSpan> Negate();
 
 			};

@@ -1,9 +1,9 @@
 #pragma once
-#include "System/String.h"
+#include "System/Object.h"
 #include "ExceptionType.h"
+#include "System/String.h"
 #include "System/Exception.h"
 #include "System/ApplicationException.h"
-#include "System/Object.h"
 #define STATIC_CELLSEXCEPTION() 
 
 

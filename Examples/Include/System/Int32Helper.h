@@ -39,6 +39,8 @@ namespace Aspose {
 				static StringPtr ToString(Int32 self, StringPtr format, intrusive_ptr<NumberFormatInfo> provider);
 				static StringPtr ToString(Int32 self, StringPtr format, intrusive_ptr<CultureInfo> provider);
 
+				static bool Equals(Int32 i1, Int32 i2);
+
 			};
 		}
 	}

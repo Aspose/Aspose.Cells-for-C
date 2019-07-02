@@ -31,6 +31,8 @@ namespace Aspose {
 				static StringPtr ToString(UInt16 self, StringPtr format);
 				static StringPtr ToString(UInt16 self, StringPtr format, intrusive_ptr<IFormatProvider> provider);
 
+				static Int32 CompareTo(UInt16 ui1, UInt16 ui2);
+
 			private:
 				static UInt16 Parse_s(StringPtr s, Globalization::NumberStyles style, intrusive_ptr<NumberFormatInfo> info);
 				static bool TryParse_s(StringPtr s, Globalization::NumberStyles style, intrusive_ptr<NumberFormatInfo> info, UInt16* result);

@@ -3,8 +3,7 @@
 
 namespace Aspose { 
 namespace Cells { 
-namespace System
-{
+namespace System{
 namespace Drawing {
 namespace Drawing2D {
 	enum CombineMode

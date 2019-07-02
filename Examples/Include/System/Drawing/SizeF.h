@@ -29,6 +29,8 @@ namespace Aspose {
 					intrusive_ptr<PointF> ToPointF();
 					intrusive_ptr<Size> ToSize();
 
+					static const intrusive_ptr<SizeF> Empty;
+
 					static intrusive_ptr<SizeF> Add(intrusive_ptr<SizeF> sz1, intrusive_ptr<SizeF> sz2);
 					static intrusive_ptr<SizeF> Subtract(intrusive_ptr<SizeF> sz1, intrusive_ptr<SizeF> sz2);
 					intrusive_ptr<SizeF> AddSizeF(intrusive_ptr<SizeF> sz2);

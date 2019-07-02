@@ -9,7 +9,9 @@
 #include "System/Byte.h"
 #include "System/Int32.h"
 #include "System/Collections/Hashtable.h"
-
+#ifdef _DEBUG
+#include "System/Console.h"
+#endif
 using namespace Aspose::Cells::System;
 using namespace Aspose::Cells::System::Collections;
 
@@ -60,6 +62,15 @@ namespace Aspose {
 					virtual StringPtr GetString(intrusive_ptr<BString> bytes, Int32 index, Int32 count);
 					virtual intrusive_ptr<BString> GetPreamble();
 					virtual int GetCodePage();
+
+					virtual StringPtr GetWebName()
+					{
+#ifdef _DEBUG
+						Console::WriteLine(NEW String("Encoding GetWebName() Not Supported!!!"));
+#endif
+						return NULL;
+					}
+
 
 					static intrusive_ptr<Encoding> GetUnicode();
 					static intrusive_ptr<Encoding> GetBigEndianUnicode();

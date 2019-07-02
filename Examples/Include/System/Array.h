@@ -16,10 +16,19 @@ namespace Aspose {
 			class ASPOSE_CELLS_API Array : public Object, public ICollection 
 			{
 			public:
-				virtual ~Array() {}
+				virtual ~Array() 
+				{
+
+				}
 
 				int32_t Length()
 				{ 
+					// 1.NEW Aspose::Cells::System::Array2D<Aspose::Cells::System::Int32>(size);->cross array 
+					// 2.void SetValue(intrusive_ptr<Array1D<T>> array, int32_t index) will change _len2D ->  _len2D != 0 
+					// but C# still return _len1D
+					// CellsJav40723();
+					if (_Rank == 2 && _len2D != 0 && _crossFlag == false)
+                    	return _len1D * _len2D; 
 					return _len1D; 
 				};
 				int32_t GetRank() 
@@ -67,12 +76,14 @@ namespace Aspose {
 					_len1D = 0;
 					_len2D = 0;
 					_len3D = 0;
+					_crossFlag = false;
 				}
 
 				int	_len1D;
 				int	_len2D;
 				int	_len3D;
 				int _Rank;
+				bool _crossFlag;
 
 			private:
 

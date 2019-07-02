@@ -49,6 +49,13 @@ namespace Aspose {
 				static StringPtr StrCat(StringPtr v1, StringPtr v2, StringPtr v3, StringPtr v4, StringPtr v5, StringPtr v6, StringPtr v7);
 				static StringPtr StrCat(StringPtr v1, StringPtr v2, StringPtr v3, StringPtr v4, StringPtr v5, StringPtr v6, StringPtr v7, StringPtr v8);
 				static StringPtr StrCat(StringPtr v1, StringPtr v2, StringPtr v3, StringPtr v4, StringPtr v5, StringPtr v6, StringPtr v7, StringPtr v8, StringPtr v9);
+				static StringPtr StrCat(StringPtr v1, StringPtr v2, StringPtr v3, StringPtr v4, StringPtr v5, StringPtr v6, StringPtr v7, StringPtr v8, StringPtr v9, StringPtr v10);
+				static StringPtr StrCat(StringPtr v1, StringPtr v2, StringPtr v3, StringPtr v4, StringPtr v5, StringPtr v6, StringPtr v7, StringPtr v8, StringPtr v9, StringPtr v10, StringPtr v11);
+				static StringPtr StrCat(StringPtr v1, StringPtr v2, StringPtr v3, StringPtr v4, StringPtr v5, StringPtr v6, StringPtr v7, StringPtr v8, StringPtr v9, StringPtr v10, StringPtr v11, StringPtr v12);
+				static StringPtr StrCat(StringPtr v1, StringPtr v2, StringPtr v3, StringPtr v4, StringPtr v5, StringPtr v6, StringPtr v7, StringPtr v8, StringPtr v9, StringPtr v10, StringPtr v11, StringPtr v12, StringPtr v13);
+				static StringPtr StrCat(StringPtr v1, StringPtr v2, StringPtr v3, StringPtr v4, StringPtr v5, StringPtr v6, StringPtr v7, StringPtr v8, StringPtr v9, StringPtr v10, StringPtr v11, StringPtr v12, StringPtr v13, StringPtr v14);
+				static StringPtr StrCat(StringPtr v1, StringPtr v2, StringPtr v3, StringPtr v4, StringPtr v5, StringPtr v6, StringPtr v7, StringPtr v8, StringPtr v9, StringPtr v10, StringPtr v11, StringPtr v12, StringPtr v13, StringPtr v14, 
+					                       StringPtr v15,StringPtr v16,StringPtr v17,StringPtr v18,StringPtr v19,StringPtr v20);
 			};
 		}
 	}

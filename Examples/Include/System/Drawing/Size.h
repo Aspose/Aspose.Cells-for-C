@@ -26,11 +26,14 @@ namespace Aspose {
 					Int32 GetWidth();
 					void SetWidth(Int32 width);
 
+					static const intrusive_ptr<Size> Empty;
+
 					static intrusive_ptr<Size> Add(intrusive_ptr<Size> sz1, intrusive_ptr<Size> sz2);
 					static intrusive_ptr<Size> Ceiling(intrusive_ptr<SizeF> value);
 					static intrusive_ptr<Size> Round(intrusive_ptr<SizeF> value);
 					static intrusive_ptr<Size> Subtract(intrusive_ptr<Size> sz1, intrusive_ptr<Size> sz2);
 					static intrusive_ptr<Size> Truncate(intrusive_ptr<SizeF> value);
+					static bool Equals(intrusive_ptr<Size> a, intrusive_ptr<Size> b);
 					intrusive_ptr<Size> AddSize(intrusive_ptr<Size> sz2);
 					intrusive_ptr<Size> SubtractSize(intrusive_ptr<Size> sz2);
 					bool EqualsSize(intrusive_ptr<Size> sz2);

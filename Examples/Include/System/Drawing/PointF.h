@@ -19,6 +19,8 @@ namespace Aspose {
 					PointF();
 					PointF(float x, float y);
 
+					static const intrusive_ptr<PointF> Empty;
+
 					bool IsEmpty();
 					float GetY();
 					void SetY(float y);
@@ -36,6 +38,7 @@ namespace Aspose {
 					bool EqualsPointF(intrusive_ptr<PointF> pt);
 
 					virtual bool Equals(ObjectPtr obj);
+					static bool Equals(intrusive_ptr<PointF> pt1, intrusive_ptr<PointF> pt2);
 					virtual int GetHashCode();
 					virtual StringPtr ToString();
 

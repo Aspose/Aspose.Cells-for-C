@@ -22,6 +22,8 @@ namespace Aspose {
 					Point(intrusive_ptr<Size> size);
 					Point(Int32 dword);
 
+					static const intrusive_ptr<Point> Empty;
+
 					bool IsEmpty();
 					Int32 GetY();
 					void SetY(Int32 y);

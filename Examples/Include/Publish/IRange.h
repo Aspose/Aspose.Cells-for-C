@@ -15,6 +15,7 @@ namespace Aspose {
 		class IStyleFlag;
 		enum CellBorderType;
 		enum BorderType;
+		class IPasteOptions;
 		class ICell;
 		class IWorksheet;
 	}
@@ -187,7 +188,7 @@ namespace Cells{
 			/// So this is a memory-consuming method. Please use it carefully.</remarks>
 			/// 
 			/// 
-			 virtual void ApplyStyle(intrusive_ptr<Aspose::Cells::IStyle> style , intrusive_ptr<Aspose::Cells::IStyleFlag> flag)=0;
+			 virtual void ApplyIStyle(intrusive_ptr<Aspose::Cells::IStyle> style , intrusive_ptr<Aspose::Cells::IStyleFlag> flag)=0;
 			/// <summary>
 			/// Sets the style of the range.
 			/// </summary>
@@ -195,7 +196,7 @@ namespace Cells{
 			/// <param name="style" >The Style object.</param>
 			/// 
 			/// 
-			 virtual void SetStyle(intrusive_ptr<Aspose::Cells::IStyle> style)=0;
+			 virtual void SetIStyle(intrusive_ptr<Aspose::Cells::IStyle> style)=0;
 			/// <summary>
 			/// Sets the outline borders around a range of cells with same border style and color.
 			/// </summary>
@@ -295,6 +296,12 @@ namespace Cells{
 			/// 
 			 virtual void CopyStyle(intrusive_ptr<Aspose::Cells::IRange> range)=0;
 			/// <summary>
+			/// Copying the range with paste special options.
+			/// </summary>
+			/// <param name="range" >The source range.</param>
+			/// <param name="options" >The paste special options.</param>
+			 virtual void Copy(intrusive_ptr<Aspose::Cells::IRange> range , intrusive_ptr<Aspose::Cells::IPasteOptions> options)=0;
+			/// <summary>
 			/// Copies data (including formulas), formatting, drawing objects etc. from a source range.
 			/// </summary>
 			/// 
@@ -338,14 +345,6 @@ namespace Cells{
 			/// 
 			/// 
 			 virtual intrusive_ptr<Aspose::Cells::IWorksheet> 		GetIWorksheet()=0;
-			/// <summary>
-			/// Returns a string represents the current Range object.
-			/// </summary>
-			/// 
-			/// <returns/>
-			/// 
-			/// 
-			  virtual intrusive_ptr<Aspose::Cells::System::String> ToString()=0;
 
 	};
 }

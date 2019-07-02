@@ -21,9 +21,9 @@ namespace Aspose {
 				virtual ~OffsetStream() {
 				}
 
-				bool GetCanRead() { return _innerStream->GetCanRead(); }
-				bool GetCanWrite() { return false; }
-				bool GetCanSeek() { return _innerStream->GetCanSeek(); }
+				bool CanRead() { return _innerStream->CanRead(); }
+				bool CanWrite() { return false; }
+				bool CanSeek() { return _innerStream->CanSeek(); }
 
 				int64_t GetLength() { return _innerStream->GetLength(); }
 				void SetLength(int64_t length) { throw NotImplementedException(); }

@@ -36,9 +36,9 @@ namespace Aspose {
 				void Close();
 				void Flush();
 				int64_t Seek(int64_t offset, SeekOrigin origin) { throw NotImplementedException(); }
-				bool GetCanRead() { return _stream->GetCanRead(); }
-				bool GetCanWrite() { return _stream->GetCanWrite(); }
-				bool GetCanSeek() { return _stream->GetCanSeek(); }
+				bool CanRead() { return _stream->CanRead(); }
+				bool CanWrite() { return _stream->CanWrite(); }
+				bool CanSeek() { return _stream->CanSeek(); }
 				int64_t GetLength() { return _stream->GetLength(); }
 				void SetLength(int64_t length);
 				int32_t Read(intrusive_ptr<BString> buffer, int32_t offset, int32_t count);
@@ -48,6 +48,11 @@ namespace Aspose {
 
 				int32_t ReadByte() { throw NotImplementedException(); }
 				void WriteByte(uint8_t value) { throw NotImplementedException(); }
+
+				static void CompressString(intrusive_ptr<Aspose::Cells::System::String> s, intrusive_ptr<Aspose::Cells::System::IO::Stream> compressor);
+				static void CompressBuffer(intrusive_ptr<Aspose::Cells::System::Array1D<Aspose::Cells::System::Byte>> b, intrusive_ptr<Aspose::Cells::System::IO::Stream> compressor);
+				static intrusive_ptr<Aspose::Cells::System::String> UncompressString(intrusive_ptr<Aspose::Cells::System::Array1D<Aspose::Cells::System::Byte>> compressed, intrusive_ptr<Aspose::Cells::System::IO::Stream> decompressor);
+				static intrusive_ptr<Aspose::Cells::System::Array1D<Aspose::Cells::System::Byte>> UncompressBuffer(intrusive_ptr<Aspose::Cells::System::Array1D<Aspose::Cells::System::Byte>> compressed, intrusive_ptr<Aspose::Cells::System::IO::Stream> decompressor);
 
 			private:
 				bool _GetWantCompress();

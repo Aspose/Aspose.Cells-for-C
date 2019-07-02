@@ -13,6 +13,7 @@ namespace Aspose {
 				static void Collect(){}
 				static void WaitForPendingFinalizers(){}
 				static void SuppressFinalize(Object* obj){}
+				static long GetTotalMemory(bool forceFullCollection) { return 0; }///zxy
 			};
 		}
 	}

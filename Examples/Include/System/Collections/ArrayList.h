@@ -20,6 +20,8 @@ namespace Aspose {
 					ArrayList();
 					ArrayList(int capacity);
 					ArrayList(intrusive_ptr<ICollection> c);
+					ArrayList(intrusive_ptr<Aspose::Cells::System::Collections::ArrayList> &);
+					ArrayList(intrusive_ptr<Aspose::Cells::System::Array1D<Aspose::Cells::System::Object*>> values);
 					virtual ~ArrayList();
 					virtual void add_ref() {
 						++ref_count_;
@@ -66,12 +68,18 @@ namespace Aspose {
 					virtual void RemoveRange(int index, int count);
 					intrusive_ptr<Array1D<Object*>> ToArray();
 					intrusive_ptr<Array> ToArray(intrusive_ptr<Type> type);
+					intrusive_ptr<Array1D<Object*>> ToArrayTest(intrusive_ptr<Type> type);
+					intrusive_ptr<Array> ToArrayTest2(intrusive_ptr<Type> type);
 					virtual void Reverse();
 					virtual void Reverse(int index, int count);
 
+					virtual int BinarySearch(ObjectPtr value);
+					virtual int BinarySearch(ObjectPtr value, intrusive_ptr<IComparer> comparer);
+					virtual int BinarySearch(int index, int count, ObjectPtr value, intrusive_ptr<IComparer> comparer);
+
 				private:
 					void EnsureCapacity(int capacity);
-					ArrayList(const ArrayList&) {}
+					//ArrayList(const ArrayList&) {}
 					Object** ReverseArray(Object**orig, int a, int b);
 
 				private:

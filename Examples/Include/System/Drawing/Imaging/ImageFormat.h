@@ -16,6 +16,7 @@ namespace Aspose {
 					{
 					private:
 						GuidPtr guid;
+						StringPtr name;
 						static intrusive_ptr<ImageFormat> memoryBMP;
 						static intrusive_ptr<ImageFormat> bmp;
 						static intrusive_ptr<ImageFormat> emf;
@@ -31,6 +32,8 @@ namespace Aspose {
 						
 					public:
 						ImageFormat(GuidPtr gui);
+						ImageFormat(StringPtr name, StringPtr guid);
+						virtual ~ImageFormat();
 
 					public:
 						GuidPtr GetGuid();

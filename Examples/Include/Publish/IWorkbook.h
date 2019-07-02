@@ -20,8 +20,39 @@ namespace Aspose {
 		class IStyleCollection;
 		class IStyle;
 		enum BuiltinStyleType;
+		class ICellsColor;
+		class IReplaceOptions;
 		class IWorkbook;
+		class IFont;
+		class ICustomFunction;
+		class ICalculationOptions;
+		enum EncryptionType;
+		enum ProtectionType;
+		class IDataSorter;
 		enum ThemeColorType;
+	}
+}
+namespace Aspose {
+	namespace Cells {
+		namespace Vba {
+			class IVbaProject;
+		}
+	}
+}
+namespace Aspose {
+	namespace Cells {
+		namespace Properties {
+			class IBuiltInDocumentPropertyCollection;
+			class ICustomDocumentPropertyCollection;
+			class IContentTypePropertyCollection;
+		}
+	}
+}
+namespace Aspose {
+	namespace Cells {
+		namespace DigitalSignatures {
+			class IDigitalSignatureCollection;
+		}
 	}
 }
 namespace Aspose{
@@ -37,7 +68,7 @@ namespace Cells{
 			/// 
 			/// <example>
 			///  The following example opens a file named designer.xls. It replaces two string values with an Integer value and string value respectively within the spreadsheet.
-			///  In order to run this case normally, you should create a file named designer.xls using MS Excels,and set two string values "OldInt" and "OldString"  between any two cells
+			///  In order to run this case normally, you should create a file named designer.xls using MS Excels, and set two string values "OldInt" and "OldString"  between any two cells
 			///  then save it in the root directory of your D: drive.
 			///  <code>
 			///		
@@ -69,12 +100,6 @@ namespace Cells{
 			/// 
 			/// 
 			 virtual intrusive_ptr<Aspose::Cells::IWorkbookSettings> 		GetISettings()=0;
-			/// <summary>
-			/// Represents the workbook settings.
-			/// </summary>
-			/// 
-			/// 
-			 virtual void SetSettings(intrusive_ptr<Aspose::Cells::IWorkbookSettings> value)=0;
 			/// <summary>
 			/// Initialize the workbook object.
 			/// </summary>
@@ -199,6 +224,13 @@ namespace Cells{
 			/// 
 			/// 
 			 virtual intrusive_ptr<Aspose::Cells::IStyle> 		CreateBuiltinIStyle(Aspose::Cells::BuiltinStyleType type)=0;
+			/// <summary>
+			/// Creates an <see cref="ICellsColor" />
+			///  object.
+			/// </summary>
+			/// <returns>Returns an <see cref="ICellsColor" />
+			///  object.</returns>
+			 virtual intrusive_ptr<Aspose::Cells::ICellsColor> 		CreateICellsColor()=0;
 			/// <summary>
 			///  Replaces a cell's value with a new string.
 			/// </summary>
@@ -372,6 +404,13 @@ namespace Cells{
 			/// 
 			 virtual Aspose::Cells::System::Int32 Replace(Aspose::Cells::System::Int32 intValue , intrusive_ptr<Aspose::Cells::System::Object> newValue)=0;
 			/// <summary>
+			///  Replaces a cell's value with a new string.
+			/// </summary>
+			/// <param name="placeHolder" >Cell placeholder</param>
+			/// <param name="newValue" >String value to replace</param>
+			/// <param name="options" > The replace options</param>
+			 virtual Aspose::Cells::System::Int32 Replace(intrusive_ptr<Aspose::Cells::System::String> placeHolder , intrusive_ptr<Aspose::Cells::System::String> newValue , intrusive_ptr<Aspose::Cells::IReplaceOptions> options)=0;
+			/// <summary>
 			/// Copies data from a source Workbook object.
 			/// </summary>
 			/// 
@@ -423,6 +462,10 @@ namespace Cells{
 			/// 
 			 virtual Aspose::Cells::System::Int32 GetCountOfStylesInPool()=0;
 			/// <summary>
+			/// Gets number of the styles in the style pool.
+			/// </summary>
+			 virtual intrusive_ptr<Aspose::Cells::System::Array1D<Aspose::Cells::IFont*>> 		GetIFonts()=0;
+			/// <summary>
 			/// Gets the named style in the style pool.
 			/// </summary>
 			/// 
@@ -454,18 +497,29 @@ namespace Cells{
 			/// 
 			 virtual bool IsColorInPalette(intrusive_ptr<Aspose::Cells::System::Drawing::Color> color)=0;
 			/// <summary>
-			///  Calculates the result of formulas, which is not supported in ver 1.0
+			///  Calculates the result of formulas
 			///  </summary>
 			/// 
 			 virtual void CalculateFormula()=0;
 			/// <summary>
-			/// Calculates the result of formulas, which is not supported in ver 1.0
+			/// Calculates the result of formulas
 			/// </summary>
 			/// 
 			/// <param name="ignoreError" >Indicates if hide the error in calculating formulas. The error may be unsupported function, external links, etc.</param>
 			/// 
 			/// 
 			 virtual void CalculateFormula(bool ignoreError)=0;
+			/// <summary>
+			/// Calculates the result of formulas.
+			/// </summary>
+			/// <param name="ignoreError" >Indicates if hide the error in calculating formulas. The error may be unsupported function, external links, etc.</param>
+			/// <param name="customFunction" >The custom formula calculation functions to extend the calculation engine.</param>
+			 virtual void CalculateFormula(bool ignoreError , intrusive_ptr<Aspose::Cells::ICustomFunction> customFunction)=0;
+			/// <summary>
+			/// Calcualting formulas in this workbook.
+			/// </summary>
+			/// <param name="options" >Options for calculation</param>
+			 virtual void 		CalculateFormula(intrusive_ptr<Aspose::Cells::ICalculationOptions> options)=0;
 			/// <summary>
 			///  Gets the default <see cref="IStyle" />
 			///  object of the workbook.
@@ -481,9 +535,9 @@ namespace Cells{
 			///  <code>
 			///  [C++]
 			///  intrusive_ptr<IWorkbook> workbook = Factory::CreateIWorkbook();
-			///  intrusive_ptr<IStyle> defaultStyle = workbook->c_GetDefaultStyle();
-			///  defaultStyle->c_GetFont()->SetName(new String("Tahoma"));
-			///  workbook->SetDefaultStyle(defaultStyle);
+			///  intrusive_ptr<IStyle> defaultStyle = workbook->GetDefaultIStyle();
+			///  defaultStyle->GetIFont()->SetName(new String("Tahoma"));
+			///  workbook->SetDefaultIStyle(defaultStyle);
 			/// 
 			///  </code>
 			/// 
@@ -506,16 +560,16 @@ namespace Cells{
 			///  <code>
 			///  [C++]
 			///  intrusive_ptr<IWorkbook> workbook = Factory::CreateIWorkbook();
-			///  intrusive_ptr<IStyle> defaultStyle = workbook->c_GetDefaultStyle();
-			///  defaultStyle->c_GetFont()->SetName(new String("Tahoma"));
-			///  workbook->SetDefaultStyle(defaultStyle);
+			///  intrusive_ptr<IStyle> defaultStyle = workbook->GetDefaultIStyle();
+			///  defaultStyle->GetIFont()->SetName(new String("Tahoma"));
+			///  workbook->SetDefaultIStyle(defaultStyle);
 			/// 
 			///  </code>
 			/// 
 			///  </example>
 			/// 
 			/// 
-			 virtual void SetDefaultStyle(intrusive_ptr<Aspose::Cells::IStyle> value)=0;
+			 virtual void SetDefaultIStyle(intrusive_ptr<Aspose::Cells::IStyle> value)=0;
 			/// <summary>
 			/// Checks if a formula is valid.
 			/// </summary>
@@ -547,91 +601,116 @@ namespace Cells{
 			/// 
 			 virtual bool IsDigitallySigned()=0;
 			/// <summary>
-			/// Gets and sets the current file name.
+			/// Set Encryption Options.
 			/// </summary>
-			/// 
+			/// <param name="encryptionType" >The encryption type.</param>
+			/// <param name="keyLength" >The key length.</param>
+			 virtual void SetEncryptionOptions(Aspose::Cells::EncryptionType encryptionType , Aspose::Cells::System::Int32 keyLength)=0;
+			/// <summary>
+			/// Protects a workbook.
+			/// </summary>
+			/// <param name="protectionType" >Protection type.</param>
+			/// <param name="password" >Password to protect the workbook.</param>
+			 virtual void Protect(Aspose::Cells::ProtectionType protectionType , intrusive_ptr<Aspose::Cells::System::String> password)=0;
+			/// <summary>
+			/// Unprotects a workbook.
+			/// </summary>
+			/// <param name="password" >Password to unprotect the workbook.</param>
+			 virtual void Unprotect(intrusive_ptr<Aspose::Cells::System::String> password)=0;
+			/// <summary>
+			/// Removes VBA/macro from this spreadsheet.
+			/// </summary>
+			 virtual void RemoveMacro()=0;
+			/// <summary>
+			/// Gets the <see cref="IVbaProject" />
+			///  in a spreadsheet.
+			/// </summary>
+			 virtual intrusive_ptr<Aspose::Cells::Vba::IVbaProject> 		GetIVbaProject()=0;
+			/// <summary>
+			/// Removes digital signature from this spreadsheet.
+			/// </summary>
+			 virtual void RemoveDigitalSignature()=0;
+			/// <summary>
+			/// Accepts all tracked changes in the workbook. 
+			/// </summary>
+			 virtual void AcceptAllRevisions()=0;
+			/// <summary>
+			/// Indicates if this spreadsheet contains macro/VBA.
+			/// </summary>
+			 virtual bool HasMacro()=0;
+			/// <summary>
+			/// Gets if the workbook has any tracked changes
+			/// </summary>
+			 virtual bool HasRevisions()=0;
+			/// <summary>
+			/// Gets current file name of this workbook.
+			/// </summary>
 			/// <remarks>
-			/// If the file is opened by stream and there are some external formula references,
-			/// please set the file name.
+			/// If this workbook is used as external data source for another workbook which contains some external formula references,
+			/// please set correct value for this property.
+			/// The set value(combined with CellsHelper.StartupPath,CellsHelper.AltStartPath,CellsHelper.LibraryPath if those properties exist)
+			/// should be same with the external reference defined in the formula.
 			/// </remarks>
-			/// 
+			/// <seealso cref="IUpdateLinkedDataSource" />
 			/// 
 			 virtual intrusive_ptr<Aspose::Cells::System::String> GetFileName()=0;
 			/// <summary>
-			/// Gets and sets the current file name.
+			/// Sets current file name of this workbook.
 			/// </summary>
-			/// 
 			/// <remarks>
-			/// If the file is opened by stream and there are some external formula references,
-			/// please set the file name.
+			/// If this workbook is used as external data source for another workbook which contains some external formula references,
+			/// please set correct value for this property.
+			/// The set value(combined with CellsHelper.StartupPath,CellsHelper.AltStartPath,CellsHelper.LibraryPath if those properties exist)
+			/// should be same with the external reference defined in the formula.
 			/// </remarks>
-			/// 
+			/// <seealso cref="IUpdateLinkedDataSource" />
 			/// 
 			 virtual void SetFileName(intrusive_ptr<Aspose::Cells::System::String> value)=0;
 			/// <summary>
+			/// Gets a DataSorter object to sort data.
+			/// </summary>
+			 virtual intrusive_ptr<Aspose::Cells::IDataSorter> 		GetIDataSorter()=0;
+			/// <summary>
 			/// Removes all external links in the workbook.
 			/// </summary>
-			/// 
-			/// 
 			 virtual void RemoveExternalLinks()=0;
 			/// <summary>
 			/// Gets theme color.
 			/// </summary>
-			/// 
 			/// <param name="type" >The theme color type.</param>
-			/// 
 			/// <returns>The theme color.</returns>
-			/// 
-			/// 
 			 virtual intrusive_ptr<Aspose::Cells::System::Drawing::Color> GetThemeColor(Aspose::Cells::ThemeColorType type)=0;
 			/// <summary>
 			/// Sets the theme color
 			/// </summary>
-			/// 
 			/// <param name="type" >The theme color type.</param>
-			/// 
 			/// <param name="color" >the theme color</param>
-			/// 
-			/// 
 			 virtual void SetThemeColor(Aspose::Cells::ThemeColorType type , intrusive_ptr<Aspose::Cells::System::Drawing::Color> color)=0;
 			/// <summary>
 			/// Gets the theme name. 
 			/// </summary>
-			/// 
-			/// 
 			 virtual intrusive_ptr<Aspose::Cells::System::String> GetTheme()=0;
 			/// <summary>
 			/// Customs the theme.
 			/// </summary>
-			/// 
 			/// <param name="themeName" >The theme name</param>
-			/// 
 			/// <param name="colors" >The theme colors</param>
-			/// 
-			/// 
-			/// 
+
 			 virtual void CustomTheme(intrusive_ptr<Aspose::Cells::System::String> themeName , intrusive_ptr<Aspose::Cells::System::Array1D<Aspose::Cells::System::Drawing::Color*>> colors)=0;
 			/// <summary>
 			/// Copies the theme from another workbook.
 			/// </summary>
-			/// 
 			/// <param name="source" >Source workbook.</param>
-			/// 
-			/// 
-			 virtual void CopyTheme(intrusive_ptr<Aspose::Cells::IWorkbook> source)=0;
+			 virtual void 		CopyITheme(intrusive_ptr<Aspose::Cells::IWorkbook> source)=0;
 			/// <summary>
 			/// Indicates whether this workbook contains external links to other data sources.
 			/// </summary>
-			/// 
 			/// <returns>Whether this workbook contains external links to other data sources.</returns>
-			/// 
-			/// 
 			 virtual bool HasExernalLinks()=0;
 			/// <summary>
 			/// If this workbook contains external links to other data source,
 			/// Aspose.Cells will attempt to retrieve the latest data.
 			/// </summary>
-			/// 
 			/// <param name="exteralWorkbooks" >
 			/// External workbooks are referred by this workbook.
 			/// If it's null, we will directly open the external linked files..
@@ -639,17 +718,73 @@ namespace Cells{
 			/// we will check whether the external link in the array first;
 			/// if not, we will open the external linked files again.
 			/// </param>
-			/// 
 			/// <remarks>
 			/// If the method is not called before calculating formulas,
 			/// Aspose.Cells will use the previous information(cached in the file);
-			/// Please set CellsHelper::GetStartupPath_i(),CellsHelper::GetAltStartPath_i,CellsHelper::GetLibraryPath_i(). 
-			/// And please set Workbook.FilePath if this workbook is from a stream,
+			/// Please set ICellsHelper::GetStartupPath(), ICellsHelper::GetAltStartPath(), ICellsHelper::GetLibraryPath(). 
+			/// And please set the FilePath of Workbook if this workbook is from a stream,
 			/// otherwise Aspose.Cells could not get the external link full path sometimes.
 			/// </remarks>
 			/// 
 			/// 
 			 virtual void UpdateLinkedDataSource(intrusive_ptr<Aspose::Cells::System::Array1D<Aspose::Cells::IWorkbook*>> exteralWorkbooks)=0;
+			/// <summary>
+			/// Returns an IDocumentProperty collection that represents all the built-in document properties of the spreadsheet. 
+			/// </summary>
+			/// <remarks>A new property cannot be added to built-in document properties list. You can only get a built-in property and change its value.
+			/// The following is the built-in properties name list:
+			/// <p>Title</p>
+			/// <p>Subject</p>
+			/// <p>Author</p>
+			/// <p>Keywords</p>
+			/// <p>Comments</p>
+			/// <p>Template</p>
+			/// <p>Last Author</p>
+			/// <p>Revision Number</p>
+			/// <p>Application Name</p>
+			/// <p>Last Print Date</p>
+			/// <p>Creation Date</p>
+			/// <p>Last Save Time</p>
+			/// <p>Total Editing Time</p>
+			/// <p>Number of Pages</p>
+			/// <p>Number of Words</p>
+			/// <p>Number of Characters</p>
+			/// <p>Security</p>
+			/// <p>Category</p>
+			/// <p>Format</p>
+			/// <p>Manager</p>
+			/// <p>Company</p>
+			/// <p>Number of Bytes</p>
+			/// <p>Number of Lines</p>
+			/// <p>Number of Paragraphs</p>
+			/// <p>Number of Slides</p>
+			/// <p>Number of Notes</p>
+			/// <p>Number of Hidden Slides</p>
+			/// <p>Number of Multimedia Clips</p>
+			/// </remarks>
+			/// <example><code>
+			/// [C++]
+			/// intrusive_ptr<Aspose::Cells::IWorkbook> workbook = Factory::CreateIWorkbook();
+			/// intrusive_ptr<Aspose::Cells::Properties::IDocumentProperty> doc = 
+			/// workbook->GetIWorksheets()->GetIBuiltInDocumentProperties()->GetObjectByIndex(new String("Author"));
+			/// doc->SetValue(new String("John Smith"));
+			/// 
+			/// </code>
+			/// </example>
+			 virtual intrusive_ptr<Aspose::Cells::Properties::IBuiltInDocumentPropertyCollection> 		GetIBuiltInDocumentProperties()=0;
+			/// <summary>
+			/// Returns an ICustomDocumentPropertyCollection that represents all the custom document properties of the spreadsheet. 
+			/// </summary>
+			/// <example><code>
+			/// [C++]
+			/// intrusive_ptr<Aspose::Cells::IWorkbook> workbook = Factory::CreateIWorkbook();
+			/// intrusive_ptr<Aspose::Cells::Properties::ICustomDocumentPropertyCollection> doc =
+			/// 	workbook->GetIWorksheets()->GetICustomDocumentProperties();
+			/// doc->AddLinkToContentProperty(new String("Checked by"), new String("Jane"));
+			/// 
+			/// </code>
+			/// </example>
+			 virtual intrusive_ptr<Aspose::Cells::Properties::ICustomDocumentPropertyCollection> 		GetICustomDocumentProperties()=0;
 			/// <summary>
 			/// Gets and sets the file format.
 			/// </summary>
@@ -663,6 +798,10 @@ namespace Cells{
 			/// 
 			 virtual void SetFileFormat(Aspose::Cells::FileFormatType value)=0;
 			/// <summary>
+			/// Gets the IContentTypePropertyCollection in the workbook.
+			/// </summary>
+			 virtual intrusive_ptr<Aspose::Cells::Properties::IContentTypePropertyCollection> 		GetIContentTypeProperties()=0;
+			/// <summary>
 			/// Gets and sets the XML file that defines the Ribbon UI.
 			/// </summary>
 			/// 
@@ -675,11 +814,48 @@ namespace Cells{
 			/// 
 			 virtual void SetRibbonXml(intrusive_ptr<Aspose::Cells::System::String> value)=0;
 			/// <summary>
+			/// Gets the Absolute path of the file.
+			/// </summary>
+			/// <remarks>
+			/// Only used for external links.
+			/// </remarks>
+			 virtual intrusive_ptr<Aspose::Cells::System::String> GetAbsolutePath()=0;
+			/// <summary>
+			/// Sets the Absolute path of the file.
+			/// </summary>
+			/// <remarks>
+			/// Only used for external links.
+			/// </remarks>
+			 virtual void SetAbsolutePath(intrusive_ptr<Aspose::Cells::System::String> value)=0;
+			/// <summary>
+			/// Imports an xml file into the workbook.
+			/// </summary>
+			/// <param name="url" >the path of the xml file.</param>
+			/// <param name="sheetName" >the destination sheet name .</param>
+			/// <param name="row" >the destination row of the xml.</param>
+			/// <param name="col" >the destination column of the xml.</param>
+			 virtual void ImportXml(intrusive_ptr<Aspose::Cells::System::String> url , intrusive_ptr<Aspose::Cells::System::String> sheetName , Aspose::Cells::System::Int32 row , Aspose::Cells::System::Int32 col)=0;
+			/// <summary>
+			/// Export XML data.
+			/// </summary>
+			/// <param name="mapName" >name of the XML map that need to be exported</param>
+			/// <param name="path" >the export path</param>
+			 virtual void ExportXml(intrusive_ptr<Aspose::Cells::System::String> mapName , intrusive_ptr<Aspose::Cells::System::String> path)=0;
+			/// <summary>
+			/// Sets digital signature to an OOXML spreadsheet file (Excel2007 and later).
+			/// </summary>
+			/// <param name="digitalSignature" />
+			/// 
+			/// <remarks>Only support adding digital signature to OOXML file.</remarks>
+			 virtual void 		SetIDigitalSignature(intrusive_ptr<Aspose::Cells::DigitalSignatures::IDigitalSignatureCollection> digitalSignature)=0;
+			/// <summary>
+			/// Gets digital signature from file.
+			/// </summary>
+			 virtual intrusive_ptr<Aspose::Cells::DigitalSignatures::IDigitalSignatureCollection> 		GetIDigitalSignature()=0;
+			/// <summary>
 			/// Performs application-defined tasks associated with freeing, releasing, or
 			/// resetting unmanaged resources.
 			/// </summary>
-			/// 
-			/// 
 			 virtual void Dispose()=0;
 public:
 		public:

@@ -8,6 +8,8 @@
 #include "System/String.h"
 #include "System/Type.h"
 #include "unicode/locid.h"
+#include "System/Globalization/DateTimeFormatInfo.h"
+#include "System/Globalization/NumberFormatInfo.h"
 
 using namespace Aspose::Cells::System;
 using namespace icu;
@@ -16,8 +18,8 @@ namespace Aspose {
 	namespace Cells { 
 		namespace System {
 			namespace Globalization {
-				class DateTimeFormatInfo;
-				class NumberFormatInfo;
+				//class DateTimeFormatInfo;
+				//class NumberFormatInfo;
 				class ASPOSE_CELLS_API CultureInfo : public Object, public IFormatProvider, public ICloneable
 				{
 				private:

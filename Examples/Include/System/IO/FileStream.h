@@ -25,9 +25,9 @@ namespace Aspose {
 
 					virtual ~FileStream();
 
-					virtual bool GetCanRead();
-					virtual bool GetCanWrite();
-					virtual bool GetCanSeek();
+					virtual bool CanRead();
+					virtual bool CanWrite();
+					virtual bool CanSeek();
 
 					StringPtr GetName();
 
@@ -42,6 +42,9 @@ namespace Aspose {
 
 					virtual int32_t ReadByte();
 					virtual void WriteByte(uint8_t value);
+
+					/* for writing xls write performance*/
+					virtual void WriteShort(Int16 value);
 
 					virtual int64_t Seek(int64_t offset, SeekOrigin origin);
 					virtual void Flush();

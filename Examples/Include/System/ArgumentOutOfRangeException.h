@@ -19,7 +19,7 @@ namespace Aspose {
 
 				}
 				ArgumentOutOfRangeException(const char* message, const char* rangeMessage) 
-					: ArgumentException(message), _rangeMessage(new String(rangeMessage))
+					: ArgumentException(message), _rangeMessage(NEW String(rangeMessage))
 				{
 					ArgumentException::SetErrorCode(-2146233086);
 				}

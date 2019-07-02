@@ -10,6 +10,7 @@ namespace Aspose {
 			class ASPOSE_CELLS_API ObjectDisposedException : public Exception
 			{
 			public:
+				ObjectDisposedException(const char* message) : Exception(message) {}
 				ObjectDisposedException(const char* objectName, const char* message);
 				ObjectDisposedException(StringPtr message)
 				{

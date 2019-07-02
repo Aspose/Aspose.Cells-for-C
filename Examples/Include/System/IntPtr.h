@@ -8,19 +8,24 @@
 namespace Aspose { 
 	namespace Cells { 
 		namespace System {
-			class ASPOSE_CELLS_API IntPtr 
+			class ASPOSE_CELLS_API IntPtr : public Object
 			{
 			private:
 				void* m_value;
 			public:
+				static intrusive_ptr<IntPtr> Zero;
+
+				IntPtr();
+				IntPtr(void* value);
 				IntPtr(int value);
 				IntPtr(Int64 value);
-				static Int32 GetSize();
+
+				void* GetValue();
+				void SetValue(void* _val);
 				bool IsNull();
-				IntPtr(void* value)
-				{
-					this->m_value = value;
-				}
+				void SetNULL();
+				static Int32 GetSize();
+				
 			};
 		}
 	}

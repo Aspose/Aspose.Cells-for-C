@@ -20,12 +20,19 @@ namespace Aspose {
 						float y;
 						float width;
 						float height;
+						bool  IntersectsWithInclusive(intrusive_ptr<RectangleF> r);
 					public:
 						static intrusive_ptr<RectangleF> Empty;
+						RectangleF();
 						RectangleF(intrusive_ptr<PointF> location, intrusive_ptr<SizeF> size);
 						RectangleF(Single x1, Single y1, Single width1, Single height1);
 			
 					public:
+						static intrusive_ptr<RectangleF> FromLTRB(Single left, Single top, Single right, Single bottom);
+						static intrusive_ptr<RectangleF> Inflate(intrusive_ptr<RectangleF> rect, Single x, Single y);
+						static intrusive_ptr<RectangleF> Union(intrusive_ptr<RectangleF> a, intrusive_ptr<RectangleF> b);
+						void Intersect(intrusive_ptr<RectangleF> rect);
+						static intrusive_ptr<RectangleF> Intersect(intrusive_ptr<RectangleF> a, intrusive_ptr<RectangleF> b);
 						Single GetHeight();
 						void SetHeight(Single value);
 						intrusive_ptr<PointF> GetLocation();
@@ -43,7 +50,11 @@ namespace Aspose {
 						Single GetTop();
 						Single GetBottom();
 						bool IsEmpty();
-						static intrusive_ptr<RectangleF> FromLTRB(Single left, Single top, Single right, Single bottom);
+
+						void Inflate(Single x, Single y);
+						void Inflate(intrusive_ptr<SizeF> size);
+
+						
 					public:
 						bool Equals(ObjectPtr obj);
 						int GetHashCode();

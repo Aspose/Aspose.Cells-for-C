@@ -4,8 +4,6 @@ namespace Cells {
 			/// <summary>
 			/// Represents all built style type.
 			/// </summary>
-			/// 
-			/// 
 	enum BuiltinStyleType 
 	{
 			BuiltinStyleType_TwentyPercentAccent1 = 30 ,

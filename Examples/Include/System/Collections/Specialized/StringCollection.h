@@ -25,8 +25,8 @@ namespace Specialized {
 		void InitVars();
 	public:
 		StringCollection();
-		//StringPtr GetSC(Int32 index);
-		//void SetSC(Int32 index, StringPtr val);
+		StringPtr GetSC(Int32 index);
+		void SetSC(Int32 index, StringPtr val);
 		ObjectPtr Get(int index);
 		void Set(int index, ObjectPtr val);
 

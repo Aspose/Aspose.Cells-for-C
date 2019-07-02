@@ -29,8 +29,8 @@ namespace Aspose {
 			///  [C++]
 			///  //Instantiating a license object
 			///	 intrusive_ptr<License> license = new License();
-			///  //set the path of license
-			///  intrusive_ptr<String> licenseName = new String("...");
+			///  //set the path and name of license file
+			///  intrusive_ptr<String> licenseName = new String("MyLicense.lic");
 			///	 //Set a license by license file name
 			///  license->SetLicense(licenseName);
 			///  </code>

@@ -11,6 +11,7 @@ namespace Aspose {
 			class ASPOSE_CELLS_API InvalidOperationException : public Exception
 			{
 			public:
+				InvalidOperationException():Exception("Arg_InvalidOperationException"){};
 				InvalidOperationException(const char* message) : Exception(message) {}
 				InvalidOperationException(StringPtr message)
 				{

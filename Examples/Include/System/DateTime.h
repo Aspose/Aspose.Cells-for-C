@@ -90,6 +90,7 @@ namespace Aspose {
 				int64_t ToFileTime();
 				int64_t ToFileTimeUtc();
 				StringPtr ToShortDateString();
+				StringPtr ToShortTimeString();
 				intrusive_ptr<DateTime> ToUniversalTime();
 				static int32_t DaysInMonth(int32_t year, int32_t month);
 				int32_t GetYear();
@@ -100,6 +101,7 @@ namespace Aspose {
 
 				static intrusive_ptr<DateTime> Parse(StringPtr value);
 				static intrusive_ptr<DateTime> Parse(StringPtr value, intrusive_ptr<CultureInfo> culture);
+				static intrusive_ptr<DateTime> Parse(StringPtr value, intrusive_ptr<CultureInfo> culture, DateTimeStyles styles);
 				static intrusive_ptr<DateTime> ParseExact(StringPtr s, StringPtr format, intrusive_ptr<CultureInfo> culture);
 				static intrusive_ptr<DateTime> ParseExact(StringPtr s, StringPtr format, intrusive_ptr<CultureInfo> culture, DateTimeStyles style);
 				StringPtr ToString();
@@ -113,7 +115,7 @@ namespace Aspose {
 				static bool LessThan(intrusive_ptr<DateTime> self, intrusive_ptr<DateTime> obj);
 				static bool LessThanOrEqual(intrusive_ptr<DateTime> self, intrusive_ptr<DateTime> obj);
 				static int Compare(intrusive_ptr<DateTime> t1, intrusive_ptr<DateTime> t2);
-				
+				static intrusive_ptr<DateTime> GetUtcNow();
 			private:
 				static intrusive_ptr<DateTime> dateTimeFromDateData(int64_t dateData);
 				static int64_t DateToTicks(int32_t year, int32_t month, int32_t day);

@@ -23,9 +23,9 @@ namespace Aspose {
 					MemoryStream(intrusive_ptr<BString> buffer, int32_t index, int32_t count, bool writable);
 					MemoryStream(intrusive_ptr<BString> buffer, int32_t index, int32_t count, bool writable, bool publiclyVisible);
 
-					virtual bool GetCanRead();
-					virtual bool GetCanWrite();
-					virtual bool GetCanSeek();
+					virtual bool CanRead();
+					virtual bool CanWrite();
+					virtual bool CanSeek();
 
 					virtual int32_t GetCapacity();
 					virtual void SetCapacity(int32_t capacity);
@@ -40,6 +40,9 @@ namespace Aspose {
 
 					virtual int32_t Read(intrusive_ptr<BString> buffer, int32_t offset, int32_t count);
 					virtual void Write(intrusive_ptr<BString> buffer, int32_t offset, int32_t count);
+
+					/* for writing xls write performance*/
+					virtual void WriteShort(Int16 value);
 
 					virtual int32_t ReadByte();
 					virtual void WriteByte(uint8_t value);

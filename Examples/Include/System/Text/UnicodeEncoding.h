@@ -54,7 +54,7 @@ namespace Aspose {
 
 					public:
 						int32_t		_lastByte;
-						uint16_t	_lastChar;
+						Char		_lastChar;
 					};
 
 				private:

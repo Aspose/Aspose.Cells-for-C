@@ -32,9 +32,9 @@ namespace Aspose {
 				int64_t GetTotalOut() { return _baseStream->_z->TotalBytesOut; }
 
 				void Dispose(bool disposing);
-				bool GetCanRead();
-				bool GetCanWrite();
-				bool GetCanSeek() { return false; }
+				bool CanRead();
+				bool CanWrite();
+				bool CanSeek() { return false; }
 				void Flush();
 				int64_t GetLength() { throw NotImplementedException(); }
 				void SetLength(int64_t length) { throw NotImplementedException(); }

@@ -8,7 +8,7 @@
 #include "System/Array1D.h"
 #include "System/Collections/ArrayList.h"
 #include "System/Globalization/CalendarC.h"
-#include "System/Globalization/CultureInfo.h"
+//#include "System/Globalization/CultureInfo.h"
 #include "unicode/locid.h"
 
 using namespace Aspose::Cells::System;
@@ -19,6 +19,7 @@ namespace Aspose {
 	namespace Cells { 
 		namespace System {
 			namespace Globalization {
+				class CultureInfo;
 				class ASPOSE_CELLS_API DateTimeFormatInfo : public ICloneable, public IFormatProvider, public Object
 				{
 					private:

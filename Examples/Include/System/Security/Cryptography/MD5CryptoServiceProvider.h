@@ -42,7 +42,7 @@ namespace Aspose {
 					void MD5Final(MD5Context* context, uint8_t digest[16]);
 					void MD5Transform(uint32_t buf[4], const uint32_t in[16]);
 
-					class ASPOSE_CELLS_API MD5CryptoServiceProvider : public MD5, public Object
+					class ASPOSE_CELLS_API MD5CryptoServiceProvider : public MD5//, public Object
 					{
 					public:
 						MD5CryptoServiceProvider();

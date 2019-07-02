@@ -5,6 +5,7 @@
 #include "System/Boolean.h"
 #include "System/String.h"
 #include "System/Drawing/FontStyle.h"
+#include "System/Drawing/Drawing2D/HatchStyle.h"
 
 namespace Aspose {
 	namespace Cells {
@@ -59,6 +60,7 @@ namespace Aspose {
 					static StringPtr ToString(Aspose::Cells::System::Drawing::FontStyle value);
 					static StringPtr ToString(Aspose::Cells::FormulaUtility::WeekEndType value);
 					static StringPtr ToString(Aspose::Cells::OpenXML::DataKeepType value);
+					static StringPtr ToString(Aspose::Cells::System::Drawing::Drawing2D::HatchStyle value);
 
 				};
 		}

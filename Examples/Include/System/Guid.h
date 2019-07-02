@@ -4,7 +4,7 @@
 #include "System/Object.h"
 #include "System/String.h"
 #include "System/TypeDefBString.h"
-
+#include "System/Drawing/GdipFuns.h"
 namespace Aspose {
 	namespace Cells {
 		namespace System {
@@ -35,15 +35,18 @@ namespace Aspose {
 				Guid();
 				Guid(intrusive_ptr<BString> bytes);
 				Guid(StringPtr str);
+				Guid(UInt32 data1, UInt16 data2, UInt16 data3, Byte data4[8]);
 				virtual ~Guid();
 
 				static intrusive_ptr<Guid> Empty;
 				int32_t CompareTo(ObjectPtr value);
 				virtual bool Equals(ObjectPtr o);
 				bool Equals(intrusive_ptr<Guid> guid);
+				static bool Equality(intrusive_ptr<Guid> a, intrusive_ptr<Guid> b);
 				virtual int32_t GetHashCode();
 				virtual StringPtr ToString();
 				StringPtr ToString(StringPtr& format);
+				StringPtr ToString(StringPtr format, intrusive_ptr<IFormatProvider> provider);
 
 				bool operator == (const Guid& g) const {
 					return _a == g._a && _b == g._b && _c == g._c && _d == g._d && _e == g._e && _f == g._f && _g == g._g && _h == g._h && _i == g._i && _j == g._j && _k == g._k;
@@ -62,6 +65,18 @@ namespace Aspose {
 				bool CheckGuid(int32_t va, int16_t vb, int16_t vc, uint8_t vd, uint8_t ve,
 					uint8_t vf, uint8_t vg, uint8_t vh, uint8_t vi, uint8_t vj, uint8_t vk);
 
+				GUID* CreateGUID(intrusive_ptr<Guid> guidPtr);
+				int32_t* GetA(){ return &_a; }
+				int16_t* GetB(){ return &_b; }
+				int16_t* GetC(){ return &_c; }
+				uint8_t* GetD(){ return &_d; }
+				uint8_t* GetE(){ return &_e; }
+				uint8_t* GetF(){ return &_f; }
+				uint8_t* GetG(){ return &_g; }
+				uint8_t* GetH(){ return &_h; }
+				uint8_t* GetI(){ return &_i; }
+				uint8_t* GetJ(){ return &_j; }
+				uint8_t* GetK(){ return &_k; }
 			private:
 				static int32_t HexsToChars(int8_t* guidChars, int32_t offset, int32_t a, int32_t b);
 				static int32_t HexsToChars(int8_t* guidChars, int32_t offset, int32_t a, int32_t b, bool hex);

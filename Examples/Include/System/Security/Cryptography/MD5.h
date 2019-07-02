@@ -3,8 +3,6 @@
 
 #include "System/Security/Cryptography/HashAlgorithm.h"
 
-using namespace Aspose::Cells::System::IO;
-
 namespace Aspose {
 	namespace Cells {
 		namespace System {

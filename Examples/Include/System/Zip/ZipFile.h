@@ -40,7 +40,12 @@ namespace Aspose {
 				int32_t				FindEntry(StringPtr entryName, bool ignoreCase);
 				ZipEntryPtr			GetEntry(StringPtr entryName);
 				StreamPtr			GetInputStream(ZipEntryPtr zipEntry);
+				StreamPtr           GetMemoryStream(ZipEntryPtr ze);
 				void				NotifyEntryChanged() { _contentsChanged = true; }
+				ZipEntryPtr GetIndexObject(int i)
+				{
+					throw Exception("NOT Realized!");
+				}
 
 				IEnumeratorPtr		GetEnumerator();
 

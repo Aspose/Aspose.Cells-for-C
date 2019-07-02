@@ -1,14 +1,17 @@
 #pragma once
 #include "System/Object.h"
 #include "System/String.h"
+#include "System/Globalization/CultureInfo.h"
 #include "System/Double.h"
 
 namespace Aspose {
 	namespace Cells {
 		enum LoadFormat;
 		enum PaperSizeType;
+		class ILoadDataOption;
 		enum CountryCode;
 		enum LoadDataFilterOptions;
+		class ILightCellsDataHandler;
 		enum MemorySetting;
 	}
 }
@@ -131,7 +134,15 @@ namespace Cells{
 			/// 
 			 virtual void SetOnlyLoadDocumentProperties(bool value)=0;
 			/// <summary>
-			/// Gets the user interface language of the Workbook version based on CountryCode that has saved the file. 
+			/// Gets ILoadDataOptions.
+			/// </summary>
+			 virtual intrusive_ptr<Aspose::Cells::ILoadDataOption> 		GetILoadDataOptions()=0;
+			/// <summary>
+			/// Sets ILoadDataOptions.
+			/// </summary>
+			 virtual void 		SetILoadDataOptions(intrusive_ptr<Aspose::Cells::ILoadDataOption> value)=0;
+			/// <summary>
+			/// Gets or sets the user interface language of the Workbook version based on CountryCode that has saved the file. 
 			/// </summary>
 			/// 
 			/// 
@@ -160,6 +171,14 @@ namespace Cells{
 			/// 
 			/// 
 			 virtual void SetRegion(Aspose::Cells::CountryCode value)=0;
+			/// <summary>
+			/// Gets the system culture info at the time the file was loaded.
+			/// </summary>
+			 virtual intrusive_ptr<Aspose::Cells::System::Globalization::CultureInfo> GetCultureInfo()=0;
+			/// <summary>
+			/// Sets the system culture info at the time the file was loaded.
+			/// </summary>
+			 virtual void SetCultureInfo(intrusive_ptr<Aspose::Cells::System::Globalization::CultureInfo> value)=0;
 			/// <summary>
 			/// Gets a value that indicates whether the string in text file is converted to numeric data.
 			/// </summary>
@@ -258,6 +277,14 @@ namespace Cells{
 			/// 
 			/// 
 			 virtual void SetLoadDataFilterOptions(Aspose::Cells::LoadDataFilterOptions value)=0;
+			/// <summary>
+			/// The data handler for processing cells data when reading template file.
+			/// </summary>
+			 virtual intrusive_ptr<Aspose::Cells::ILightCellsDataHandler> 		GetILightCellsDataHandler()=0;
+			/// <summary>
+			/// The data handler for processing cells data when reading template file.
+			/// </summary>
+			 virtual void 		SetILightCellsDataHandler(intrusive_ptr<Aspose::Cells::ILightCellsDataHandler> value)=0;
 			/// <summary>
 			/// Gets the memory usage options.
 			/// </summary>

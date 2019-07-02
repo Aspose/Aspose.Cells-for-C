@@ -32,9 +32,12 @@ namespace Aspose {
 					Array::_len1D = 0;
 					Array::_len2D = 0;
 					_cols = 0;
+					Array::_crossFlag = false;
 				}
+				// such as: NEW Aspose::Cells::System::Array2D<Aspose::Cells::System::Int32>(size); cross array
 				Array2D(int len) : _construct2d(false), _cols(0)
 				{
+					_crossFlag = true;
 					Array::_Rank = 2;
 					_p = NEW Array1D<T>*[len];
 					_len = len;
@@ -56,6 +59,12 @@ namespace Aspose {
 					}
 					_construct2d = true;
 					_cols = column;
+					//_crossFlag = false;
+					//C#: int[,] m = new int[2,3];
+					//m.length return 6.
+					//For C++ we translate length -> Length()
+					//so we shoule do following
+					//Array::_len1D = row * column;///
 				}
 				Array2D(const Array2D& _Array2D)
 				{
@@ -69,6 +78,7 @@ namespace Aspose {
 						memset(_p, 0, sizeof(Array1D<T>*) * _len);
 						ArrayHelper::Copy(_Array2D._p, _p, _len);
 						_construct2d = false;
+						Array::_crossFlag = _Array2D._crossFlag;
 					}
 					else {
 						Array::_Rank = 2;
@@ -85,12 +95,14 @@ namespace Aspose {
 							ArrayHelper::Copy(_Array2D._p[i], _p[i], _cols);
 						}
 						_construct2d = true;
+						Array::_crossFlag = _Array2D._crossFlag;
 					}
 				}
 
 				int GetLength()
 				{
 					return _len;
+					///return _len*_cols;
 				}
 
 				Array1D<T>* At(int32_t index) {
@@ -155,6 +167,7 @@ namespace Aspose {
 				int	_len;
 				bool	_construct2d;
 				int		_cols;
+				//bool    _crossFlag;
 			};
 
 			template <class T>
@@ -177,9 +190,11 @@ namespace Aspose {
 					_len = 0;
 					Array::_len1D = 0;
 					_cols = 0;
+					Array::_crossFlag = false;
 				}
 				Array2D(int len) : _construct2d(false), _cols(0)
 				{
+					_crossFlag = true;
 					Array::_Rank = 2;
 					_p = NEW Array1D<T*>*[len];
 					_len = len;
@@ -201,6 +216,12 @@ namespace Aspose {
 					}
 					_construct2d = true;
 					_cols = column;
+					//_crossFlag = false;
+					//C#: int[,] m = new int[2,3];
+					//m.length return 6.
+					//For C++ we translate length -> Length()
+					//so we shoule do following
+					//Array::_len1D = row * column;///
 				}
 				Array2D(const Array2D& _Array2D)
 				{
@@ -214,6 +235,7 @@ namespace Aspose {
 						memset(_p, 0, sizeof(Array1D<T*>*) * _len);
 						ArrayHelper::Copy(_Array2D._p, _p, _len);
 						_construct2d = false;
+						Array::_crossFlag = _Array2D._crossFlag;
 					}
 					else {
 						Array::_Rank = 2;
@@ -230,12 +252,14 @@ namespace Aspose {
 							ArrayHelper::Copy(_Array2D._p[i], _p[i], _cols);
 						}
 						_construct2d = true;
+						Array::_crossFlag = _Array2D._crossFlag;
 					}
 				}
 
 				int GetLength()
 				{
 					return _len;
+					///return _len*_cols;
 				}
 
 				Array1D<T*>* At(int32_t index) {

@@ -7,6 +7,7 @@
 #include "System/String.h"
 #include "System/IO/SeekOrigin.h"
 #include "System/TypeDefBString.h"
+#include "System/NotSupportedException.h"
 
 namespace Aspose {
 	namespace Cells {
@@ -25,9 +26,9 @@ namespace Aspose {
 						return --ref_count_;
 					}
 
-					virtual bool GetCanRead() = 0;
-					virtual bool GetCanWrite() = 0;
-					virtual bool GetCanSeek() = 0;
+					virtual bool CanRead() = 0;
+					virtual bool CanWrite() = 0;
+					virtual bool CanSeek() = 0;
 
 					virtual int64_t GetLength() = 0;
 					virtual void SetLength(int64_t length) = 0;
@@ -38,8 +39,12 @@ namespace Aspose {
 					virtual int32_t Read(intrusive_ptr<BString> buffer, int32_t offset, int32_t count) = 0;
 					virtual void Write(intrusive_ptr<BString> buffer, int32_t offset, int32_t count) = 0;
 
-					virtual int32_t ReadByte() = 0;
-					virtual void WriteByte(uint8_t value) = 0;
+					virtual void WriteShort(Int16 value) {
+						throw NotSupportedException("Not Supported");
+					}
+
+					virtual Int32 ReadByte();
+					virtual void WriteByte(Byte value);
 
 					virtual int64_t Seek(int64_t offset, SeekOrigin origin) = 0;
 					virtual void Flush() = 0;

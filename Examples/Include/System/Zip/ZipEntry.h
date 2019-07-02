@@ -11,6 +11,7 @@
 #include "System/NotSupportedException.h"
 #include "System/Zip/SharedUtilities.h"
 #include "System/Zip/CompressionLevel.h"
+#include "System/Zip/ZipContainer.h"
 
 using namespace Aspose::Cells::System;
 using namespace Aspose::Cells::System::IO;
@@ -22,7 +23,6 @@ namespace Aspose {
 		namespace OpenXML
 		{
 			class ZipFile;
-			class ZipContainer;
 			class ASPOSE_CELLS_API ZipEntry : public Object
 			{
 			public:

@@ -10,7 +10,7 @@
 #include "System/IO/TextWriter.h"
 #include "System/IO/Stream.h"
 #include "System/TypeDefBString.h"
-
+#include "windows.h"
 using namespace Aspose::Cells::System::Text;
 
 namespace Aspose { 
@@ -38,11 +38,17 @@ namespace Aspose {
 						virtual void Close();
 						virtual void Flush();
 						virtual void Write(Char value);
+
+						virtual void Write(Char* str);
+						virtual void Write(Char* str, Int32 index, Int32 count);
+						virtual void Write(String* wstr);
+
 						virtual void Write(intrusive_ptr<CString> buffer);
 						virtual void Write(intrusive_ptr<CString> buffer, Int32 index, Int32 count);
 						virtual void Write(StringPtr value);
 						virtual void Write(ObjectPtr value);
 						virtual void Write(Int64 value);
+						StreamPtr GetBaseStream() { return _stream; }
 
 					protected:
 						void Dispose(bool disposing);

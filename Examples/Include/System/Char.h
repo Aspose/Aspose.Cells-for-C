@@ -4,7 +4,7 @@
 namespace Aspose {
 	namespace Cells {
 		namespace System {
-			typedef uint16_t Char;
+			typedef wchar_t Char;
 		}
 	}
 }

@@ -40,7 +40,7 @@ namespace Cells {
 			/// 
 			SaveFormat_Xltm = 9 ,
 			/// <summary>
-			/// Represents an xltm file which enable addin macros.
+			/// Represents an xltm file which enable adding macros.
 			/// </summary>
 			/// 
 			/// 
@@ -113,7 +113,7 @@ namespace Cells {
 			/// 
 			SaveFormat_XPS = 20 ,
 			/// <summary>
-			/// Represents an TIFF file.
+			/// Represents a TIFF file.
 			/// </summary>
 			/// 
 			/// 

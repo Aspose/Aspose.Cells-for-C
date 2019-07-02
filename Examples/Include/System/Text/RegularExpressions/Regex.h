@@ -44,6 +44,7 @@ namespace Aspose {
 						static bool IsMatch(StringPtr input, StringPtr pattern);
 						intrusive_ptr<Array1D<String*>> Split(StringPtr  input);
 						intrusive_ptr<Array1D<String*>> Split(StringPtr  input, Int32 limit);
+						static intrusive_ptr<Array1D<String*>> Split(StringPtr input, StringPtr pattern);
 						static intrusive_ptr<MatchCollection> Matches(intrusive_ptr<Regex> regex, StringPtr text);
 						static intrusive_ptr<MatchCollection> Matches(intrusive_ptr<NamedPattern> pattern, StringPtr text);
 						intrusive_ptr<NamedPattern> GetPattern();

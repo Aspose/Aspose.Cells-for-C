@@ -7,11 +7,14 @@
 #include "System/Drawing/Point.h"
 #include "System/Drawing/Size.h"
 
+//#define NEW Aspose::Cells::System::Drawing::Rectangle(0, 0, 0, 0)   NEW Rectangle(0, 0, 0, 0);
+
 using namespace Aspose::Cells::System;
 namespace Aspose { 
 	namespace Cells { 
 		namespace System {
 			namespace Drawing { 
+				class RectangleF;
 				class ASPOSE_CELLS_API Rectangle: public Object 
 				{
 					private:
@@ -21,10 +24,14 @@ namespace Aspose {
 						int height;
 					public:
 						static intrusive_ptr<Rectangle>  Empty;
+						Rectangle();
 						Rectangle(intrusive_ptr<Point> location, intrusive_ptr<Size> size);
 						Rectangle(Int32 x1, Int32 y1, Int32 width1, Int32 height1);
 					public:
 						static intrusive_ptr<Rectangle>  FromLTRB(Int32 left, Int32 top, Int32 right, Int32 bottom);
+						static intrusive_ptr<Rectangle> Round(intrusive_ptr<RectangleF>  value);
+						static intrusive_ptr<Rectangle> Inflate(intrusive_ptr<Rectangle> rect, int x, int y);
+						static intrusive_ptr<Rectangle> Union(intrusive_ptr<Rectangle> a, intrusive_ptr<Rectangle> b);
 						Int32 GetHeight();
 						void SetHeight(Int32 val);
 						intrusive_ptr<Point> GetLocation();
@@ -42,6 +49,9 @@ namespace Aspose {
 						Int32 GetTop();
 						Int32 GetBottom();
 						bool IsEmpty();
+						void Inflate(int width, int height);
+						void Inflate(intrusive_ptr<Size> size);
+						bool IntersectsWith(intrusive_ptr<Rectangle> rect);
 					public:
 						bool Equals(ObjectPtr obj);
 						int GetHashCode();

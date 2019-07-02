@@ -10,6 +10,7 @@ namespace Aspose {
 			class ASPOSE_CELLS_API NotSupportedException : public Exception
 			{
 			public:
+				NotSupportedException() : Exception() {}
 				NotSupportedException(const char* message) : Exception(message) {}
 				NotSupportedException(StringPtr message)
 				{

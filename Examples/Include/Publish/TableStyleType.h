@@ -5,8 +5,6 @@ namespace Tables {
 			/// <summary>
 			/// Represents the built-in table style type.
 			/// </summary>
-			/// 
-			/// 
 	enum TableStyleType 
 	{
 			TableStyleType_None ,

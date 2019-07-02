@@ -79,9 +79,9 @@ namespace Aspose {
 					_bytesWritten += count;
 				}
 
-				bool GetCanRead() { return _s->GetCanRead(); }
-				bool GetCanWrite() { return _s->GetCanWrite(); }
-				bool GetCanSeek() { return _s->GetCanSeek(); }
+				bool CanRead() { return _s->CanRead(); }
+				bool CanWrite() { return _s->CanWrite(); }
+				bool CanSeek() { return _s->CanSeek(); }
 
 				int64_t GetLength() { return _s->GetLength(); }
 				void SetLength(int64_t length) { _s->SetLength(length); }

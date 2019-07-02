@@ -61,33 +61,25 @@ namespace Cells{
 			/// <summary>
 			/// Gets the column object by the index.
 			/// </summary>
-			/// 
 			/// <param name="index" />
 			/// 
 			/// <returns>Returns the column object.</returns>
-			/// 
 			/// <remarks>NOTE: This member is now obsolete. Instead, 
 			/// please use GetIColumnByIndex(int) method.</remarks>
 			/// 
 			/// 
-			 virtual intrusive_ptr<Aspose::Cells::IColumn> 		GetByIndex_i(Aspose::Cells::System::Int32 index)=0;
+			 virtual intrusive_ptr<Aspose::Cells::IColumn> 		GetIColumn(Aspose::Cells::System::Int32 index)=0;
 			/// <summary>
 			/// Gets the <see cref="IColumn" />
 			///  object by the position in the list.
 			/// </summary>
-			/// 
 			/// <param name="index" >The position in the list.</param>
-			/// 
 			/// <returns>Returns the column object.</returns>
-			/// 
-			/// 
 			 virtual intrusive_ptr<Aspose::Cells::IColumn> 		GetIColumnByIndex(Aspose::Cells::System::Int32 index)=0;
 			/// <summary>
-			/// Gets an <see also cref="IColumn" />
+			/// Gets a <see cref="IColumn" />
 			///  object by column index. The Column object of given column index will be instantiated if it does not exist before.
 			/// </summary>
-			/// 
-			/// 
 			 virtual intrusive_ptr<Aspose::Cells::IColumn> 		GetObjectByIndex(Aspose::Cells::System::Int32 columnIndex)=0;
 
 	};

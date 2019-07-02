@@ -8,7 +8,9 @@
 #include <assert.h>
 
 #ifdef _DEBUG
-//#include <vld.h>
+#ifdef _VLD_
+#include <vld.h>
+#endif
 #endif
 
 using namespace std;

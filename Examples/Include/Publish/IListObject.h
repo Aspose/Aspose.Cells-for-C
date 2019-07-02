@@ -5,16 +5,17 @@
 
 namespace Aspose {
 	namespace Cells {
-		class IRange;
-		class IAutoFilter;
+		namespace Tables {
+			class IListColumnCollection;
+			enum TableDataSourceType;
+			enum TableStyleType;
+		}
 	}
 }
 namespace Aspose {
 	namespace Cells {
-		namespace Tables {
-			enum TableDataSourceType;
-			enum TableStyleType;
-		}
+		class IRange;
+		class IAutoFilter;
 	}
 }
 namespace Aspose{
@@ -84,6 +85,10 @@ namespace Tables{
 			/// 
 			/// 
 			 virtual Aspose::Cells::System::Int32 GetEndColumn()=0;
+			/// <summary>
+			/// Gets ListColumns of the IListObject.
+			/// </summary>
+			 virtual intrusive_ptr<Aspose::Cells::Tables::IListColumnCollection> 		GetIListColumns()=0;
 			/// <summary>
 			/// Resize the range of the list object.
 			/// </summary>

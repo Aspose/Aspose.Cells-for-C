@@ -6,17 +6,16 @@
 using namespace Aspose::Cells::System ;
 namespace Aspose { 
 namespace Cells { 
-namespace System
-{
+namespace System{
 namespace Drawing {
 namespace Drawing2D {
 	class ASPOSE_CELLS_API GraphicsState: public Object
 	{
-		private:
-
 		public:
-
-
+			unsigned int nativeState;
+			GraphicsState()
+			{
+			}
 	};
 }
 }

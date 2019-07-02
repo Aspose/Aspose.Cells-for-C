@@ -31,6 +31,7 @@ namespace Aspose {
 					static StringPtr GetFileName(StringPtr path);
 					static StringPtr GetFileNameWithoutExtension(StringPtr path);
 					static StringPtr GetFullPath(StringPtr path);
+					static StringPtr GetTmpPath();
 					static StringPtr GetPathRoot(StringPtr path);
 					static bool IsPathRooted(StringPtr path);
 					static bool IsDirectorySeparator(Char c);

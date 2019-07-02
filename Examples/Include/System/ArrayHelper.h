@@ -4,6 +4,8 @@
 #include "System/Object.h"
 #include "System/Collections/Sorter.h"
 #include "System/Collections/IComparer.h"
+#include "System/ArgumentOutOfRangeException.h"
+#include "System/ArgumentNullException.h"
 
 using namespace Aspose::Cells::System::Collections;
 
@@ -387,6 +389,10 @@ namespace Aspose {
 					Sorter::QuickSort2(array0->ArrayPoint(), index, index + length - 1);
 				}
 				template <class T>
+				static void Sort(intrusive_ptr<Array1D<T>> array0, intrusive_ptr<IComparer> comparer) {
+					Sorter::QuickSort(array0->ArrayPoint(), 0, array0->GetLength()-1, comparer);
+				}
+				template <class T>
 				static void Sort(intrusive_ptr<Array1D<T>> array0, int index, int length, intrusive_ptr<IComparer> comparer) {
 					Sorter::QuickSort(array0->ArrayPoint(), index, index + length - 1, comparer);
 				}
@@ -498,6 +504,16 @@ namespace Aspose {
 				///////////////////////////////////////////////////////////////
 				//end of BinarySearch 
 				///////////////////////////////////////////////////////////////
+
+				///////////////////////////////////////////////////////////////
+				//(6) Reverse
+				///////////////////////////////////////////////////////////////
+				static void Reverse(intrusive_ptr<Array> array0);
+				static void Reverse(intrusive_ptr<Array> array0, int index, int length);
+				///////////////////////////////////////////////////////////////
+				//end of Reverse 
+				///////////////////////////////////////////////////////////////
+
 
 				static int GetMedian(int low, int hi) {
 					return low + ((hi - low) >> 1);

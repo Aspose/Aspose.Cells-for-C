@@ -3,6 +3,8 @@
 #include "System/String.h"
 #include "System/Double.h"
 #include "System/Int32.h"
+#include "System/Array1D.h"
+#include "System/Byte.h"
 
 namespace Aspose {
 	namespace Cells {
@@ -11,6 +13,14 @@ namespace Aspose {
 		enum PageOrientationType;
 		enum PrintCommentsType;
 		enum PrintErrorsType;
+		class IHeaderFooterCommand;
+	}
+}
+namespace Aspose {
+	namespace Cells {
+		namespace Drawing {
+			class IPicture;
+		}
 	}
 }
 namespace Aspose{
@@ -147,24 +157,6 @@ namespace Cells{
 			/// 
 			/// 
 			 virtual void SetCenterVertically(bool value)=0;
-			/// <summary>
-			/// Represents if the sheet will be printed without graphics.
-			/// </summary>
-			/// 
-			/// <remarks>NOTE: This member is now obsolete. Instead, 
-			/// please use GetPrintDraft() method.</remarks>
-			/// 
-			/// 
-			 virtual bool GetDraft()=0;
-			/// <summary>
-			/// Represents if the sheet will be printed without graphics.
-			/// </summary>
-			/// 
-			/// <remarks>NOTE: This member is now obsolete. Instead, 
-			/// please use SetPrintDraft() method.</remarks>
-			/// 
-			/// 
-			 virtual void SetDraft(bool value)=0;
 			/// <summary>
 			/// Represents if the sheet will be printed without graphics.
 			/// </summary>
@@ -368,7 +360,7 @@ namespace Cells{
 			/// </summary>
 			/// 
 			/// 
-			 virtual void SetIsPercentScale(bool value)=0;
+			  virtual void SetPercentScale(bool value) = 0;
 			/// <summary>
 			/// Represents the order that Microsoft Excel uses to number pages when printing a large worksheet.
 			/// </summary>
@@ -393,6 +385,14 @@ namespace Cells{
 			/// 
 			/// 
 			 virtual void SetPaperSize(Aspose::Cells::PaperSizeType value)=0;
+			/// <summary>
+			/// Represents the width in inches of the paper, considered page orientation.
+			/// </summary>
+			  virtual Aspose::Cells::System::Double GetPaperWidth() = 0;
+			/// <summary>
+			/// Represents the height in inches of the paper, considered page orientation.
+			/// </summary>
+			  virtual Aspose::Cells::System::Double GetPaperHeight() = 0;
 			/// <summary>
 			/// Represents page print orientation.
 			/// </summary>
@@ -476,7 +476,7 @@ namespace Cells{
 			/// </summary>
 			/// 
 			/// 
-			 virtual void SetIsAutoFirstPageNumber(bool value)=0;
+			  virtual void SetAutoFirstPageNumber(bool value) = 0;
 			/// <summary>
 			/// Represents the print quality.
 			/// </summary>
@@ -520,6 +520,12 @@ namespace Cells{
 			/// 
 			/// 
 			 virtual intrusive_ptr<Aspose::Cells::System::String> GetHeader(Aspose::Cells::System::Int32 section)=0;
+			/// <summary>
+			/// Gets all commands of header or footer.
+			/// </summary>
+			/// <param name="headerFooterScript" >The header/footer script</param>
+			/// <returns>Returns all commands of header or footer.</returns>
+			 virtual intrusive_ptr<Aspose::Cells::System::Array1D<Aspose::Cells::IHeaderFooterCommand*>> 		GetIHeaderFooterCommand(intrusive_ptr<Aspose::Cells::System::String> headerFooterScript)=0;
 			/// <summary>
 			///  Gets a script formatting the footer of an Excel file.
 			/// </summary>
@@ -874,33 +880,33 @@ namespace Cells{
 			/// </summary>
 			/// 
 			/// 
-			 virtual void SetIsHFDiffOddEven(bool value)=0;
+			  virtual void SetHFDiffOddEven(bool value) = 0;
 			/// <summary>
 			/// True means that the header/footer of the first page is different with other pages.
 			/// </summary>
 			/// 
 			/// 
-			 virtual bool IsHFDiffFirst()=0;
+			  virtual bool IsHFDiffFirst() = 0;
 			/// <summary>
 			/// True means that the header/footer of the first page is different with other pages.
 			/// </summary>
 			/// 
 			/// 
-			 virtual void SetIsHFDiffFirst(bool value)=0;
+			  virtual void SetHFDiffFirst(bool value) = 0;
 			/// <summary>
 			/// Indicates whether header and footer are scaled with document scaling.
 			/// Only applies for Excel 2007.
 			/// </summary>
 			/// 
 			/// 
-			 virtual bool IsHFScaleWithDoc()=0;
+			  virtual bool IsHFScaleWithDoc() = 0;
 			/// <summary>
 			/// Indicates whether header and footer are scaled with document scaling.
 			/// Only applies for Excel 2007.
 			/// </summary>
 			/// 
 			/// 
-			 virtual void SetIsHFScaleWithDoc(bool value)=0;
+			  virtual void SetHFScaleWithDoc(bool value) = 0;
 			/// <summary>
 			/// Indicates whether header and footer margins are aligned with the page margins.
 			/// Only applies for Excel 2007.
@@ -912,9 +918,70 @@ namespace Cells{
 			/// Indicates whether header and footer margins are aligned with the page margins.
 			/// Only applies for Excel 2007.
 			/// </summary>
-			/// 
-			/// 
-			 virtual void SetIsHFAlignMargins(bool value)=0;
+			  virtual void SetHFAlignMargins(bool value) = 0;
+			/// <summary>
+			/// Sets an image in the header of a worksheet.
+			/// </summary>
+			/// <param name="section" ><p>0:Left Section.</p>
+			/// <p>1:Center Section</p>
+			/// <p>2:Right Section</p>
+			/// </param>
+			/// <param name="headerPicture" >Image data.</param>
+			/// <returns>Returns <see cref="IPicture" />
+			///  object.</returns>
+			 virtual intrusive_ptr<Aspose::Cells::Drawing::IPicture> 		SetHeaderIPicture(Aspose::Cells::System::Int32 section , intrusive_ptr<Aspose::Cells::System::Array1D<Aspose::Cells::System::Byte>> headerPicture)=0;
+			/// <summary>
+			/// Sets an image in the footer of a worksheet.
+			/// </summary>
+			/// <param name="section" ><p>0:Left Section.</p>
+			/// <p>1:Center Section</p>
+			/// <p>2:Right Section</p>
+			/// </param>
+			/// <param name="footerPicture" >Image data.</param>
+			/// <returns>Returns <see cref="IPicture" />
+			///  object.</returns>
+			 virtual intrusive_ptr<Aspose::Cells::Drawing::IPicture> 		SetFooterIPicture(Aspose::Cells::System::Int32 section , intrusive_ptr<Aspose::Cells::System::Array1D<Aspose::Cells::System::Byte>> footerPicture)=0;
+			/// <summary>
+			/// Sets an image in the header/footer of a worksheet.
+			/// </summary>
+			/// <param name="isFirst" >Indicateds whether setting the picture of first page header/footer. </param>
+			/// <param name="isEven" >Indicateds whether setting the picture of even page header/footer.</param>
+			/// <param name="isHeader" >Indicateds whether setting the picture of header/footer.</param>
+			/// <param name="section" ><p>0:Left Section.</p>
+			/// <p>1:Center Section</p>
+			/// <p>2:Right Section</p>
+			/// </param>
+			/// <param name="imageData" >Image data.</param>
+			/// <returns>Returns <see cref="IPicture" />
+			///  object.</returns>
+			 virtual intrusive_ptr<Aspose::Cells::Drawing::IPicture> 		SetIPicture(bool isFirst , bool isEven , bool isHeader , Aspose::Cells::System::Int32 section , intrusive_ptr<Aspose::Cells::System::Array1D<Aspose::Cells::System::Byte>> imageData)=0;
+			/// <summary>
+			/// Gets the <see cref="IPicture" />
+			///  object of the header / footer.
+			/// </summary>
+			/// <param name="isHeader" >Indicates whether it is in the header or footer.</param>
+			/// <param name="section" ><p>0:Left Section.</p>
+			/// <p>1:Center Section</p>
+			/// <p>2:Right Section</p>
+			/// </param>
+			/// <returns>Returns <see cref="IPicture" />
+			///  object.
+			/// Returns null if there is no picture.</returns>
+			 virtual intrusive_ptr<Aspose::Cells::Drawing::IPicture> 		GetIPicture(bool isHeader , Aspose::Cells::System::Int32 section)=0;
+			/// <summary>
+			///  Gets the <see cref="IPicture" />
+			///  object of the header / footer.
+			/// </summary>
+			/// <param name="isFirst" >Indicateds whether getting the picture of first page header/footer. </param>
+			/// <param name="isEven" >Indicateds whether getting the picture of even page header/footer.</param>
+			/// <param name="isHeader" >Indicateds whether getting the picture of header/footer.</param>
+			/// <param name="section" ><p>0:Left Section.</p>
+			/// <p>1:Center Section</p>
+			/// <p>2:Right Section</p>
+			/// </param>
+			/// <returns>Returns <see cref="IPicture" />
+			///  object.</returns>
+			 virtual intrusive_ptr<Aspose::Cells::Drawing::IPicture> 		GetIPicture(bool isFirst , bool isEven , bool isHeader , Aspose::Cells::System::Int32 section)=0;
 
 	};
 }

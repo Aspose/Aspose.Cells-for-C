@@ -6,6 +6,7 @@
 
 namespace Aspose {
 	namespace Cells {
+		class IThemeColor;
 		enum BackgroundType;
 		class IBorderCollection;
 		class IStyle;
@@ -34,6 +35,34 @@ namespace Cells{
 	class ASPOSE_CELLS_API IStyle : public Aspose::Cells::System::Object
 	{
 		public:
+			/// <summary>
+			/// Get the background theme color.
+			/// </summary>
+			/// <remarks>
+			/// If the background color is not a theme color, NULL will be returned.
+			/// </remarks>
+			 virtual intrusive_ptr<Aspose::Cells::IThemeColor> 		GetBackgroundIThemeColor()=0;
+			/// <summary>
+			/// Sets the background theme color.
+			/// </summary>
+			/// <remarks>
+			/// If the background color is not a theme color, NULL will be returned.
+			/// </remarks>
+			 virtual void 		SetBackgroundIThemeColor(intrusive_ptr<Aspose::Cells::IThemeColor> value)=0;
+			/// <summary>
+			/// Gets the foreground theme color.
+			/// </summary>
+			/// <remarks>
+			/// If the foreground color is not a theme color, NULL will be returned.
+			/// </remarks>
+			 virtual intrusive_ptr<Aspose::Cells::IThemeColor> 		GetForegroundIThemeColor()=0;
+			/// <summary>
+			/// Sets the foreground theme color.
+			/// </summary>
+			/// <remarks>
+			/// If the foreground color is not a theme color, NULL will be returned.
+			/// </remarks>
+			 virtual void 		SetForegroundIThemeColor(intrusive_ptr<Aspose::Cells::IThemeColor> value)=0;
 			/// <summary>
 			/// Gets the name of the style.
 			/// </summary>
@@ -69,7 +98,7 @@ namespace Cells{
 			/// Gets a style's background color.
 			/// </summary>
 			/// 
-			/// <remarks>If you want to set a cell's color, please use Style.ForegroundColor property. 
+			/// <remarks>If you want to set a cell's color, please use GetForegroundColor method of IStyle. 
 			/// Only if the cell style pattern is other than none or solid, this property will take effect.</remarks>
 			/// 
 			/// 
@@ -78,7 +107,7 @@ namespace Cells{
 			/// Sets a style's background color.
 			/// </summary>
 			/// 
-			/// <remarks>If you want to set a cell's color, please use Style.ForegroundColor property. 
+			/// <remarks>If you want to set a cell's color, please use GetForegroundColor method of IStyle. 
 			/// Only if the cell style pattern is other than none or solid, this property will take effect.</remarks>
 			/// 
 			/// 
@@ -99,7 +128,7 @@ namespace Cells{
 			/// Gets a style's foreground color.
 			/// </summary>
 			/// 
-			/// <remarks>It means no color setting if Color.Empty is returned.</remarks>
+			/// <remarks>It means no color setting if Color::Empty is returned.</remarks>
 			/// 
 			/// 
 			 virtual intrusive_ptr<Aspose::Cells::System::Drawing::Color> GetForegroundColor()=0;
@@ -107,7 +136,7 @@ namespace Cells{
 			/// Sets a style's foreground color.
 			/// </summary>
 			/// 
-			/// <remarks>It means no color setting if Color.Empty is returned.</remarks>
+			/// <remarks>It means no color setting if Color::Empty is returned.</remarks>
 			/// 
 			/// 
 			 virtual void SetForegroundColor(intrusive_ptr<Aspose::Cells::System::Drawing::Color> value)=0;
@@ -316,7 +345,7 @@ namespace Cells{
 			/// </summary>
 			/// 
 			/// 
-			 virtual void SetIsTextWrapped(bool value)=0;
+			 virtual void SetTextWrapped(bool value)=0;
 			/// <summary>
 			///  Gets the display format of numbers and dates.
 			///  </summary>
@@ -359,7 +388,7 @@ namespace Cells{
 			/// <remarks>Locking cells has no effect unless the worksheet is protected. </remarks>
 			/// 
 			/// 
-			 virtual void SetIsLocked(bool value)=0;
+			 virtual void SetLocked(bool value)=0;
 			/// <summary>
 			/// Sets the custom number format string of a cell.
 			/// </summary>
@@ -416,7 +445,7 @@ namespace Cells{
 			/// </summary>
 			/// 
 			/// 
-			 virtual void SetIsFormulaHidden(bool value)=0;
+			 virtual void SetFormulaHidden(bool value)=0;
 			/// <summary>
 			/// Represents if text automatically shrinks to fit in the available column width.
 			/// </summary>
@@ -460,7 +489,7 @@ namespace Cells{
 			/// </remarks>
 			/// 
 			/// 
-			 virtual void SetIsJustifyDistributed(bool value)=0;
+			 virtual void SetJustifyDistributed(bool value)=0;
 			/// <summary>
 			/// Indicates whether the cell's value starts with single quote mark.
 			/// </summary>
@@ -478,7 +507,7 @@ namespace Cells{
 			/// </summary>
 			/// 
 			/// 
-			 virtual void SetIsGradient(bool value)=0;
+			 virtual void SetGradient(bool value)=0;
 			/// <summary>
 			/// Sets the specified fill to a two-color gradient.
 			/// </summary>
@@ -489,7 +518,7 @@ namespace Cells{
 			/// 
 			/// <param name="gradientStyleType" >Gradient shading style.</param>
 			/// 
-			/// <param name="variant" >The gradient variant. Can be a value from 1 through 4, corresponding to one of the four variants on the Gradient tab in the Fill Effects dialog box. If style is GradientStyle.FromCenter, the Variant argument can only be 1 or 2.</param>
+			/// <param name="variant" >The gradient variant. Can be a value from 1 through 4, corresponding to one of the four variants on the Gradient tab in the Fill Effects dialog box. If style is GradientStyleType_FromCenter, the Variant argument can only be 1 or 2.</param>
 			/// 
 			/// 
 			 virtual void SetTwoColorGradient(intrusive_ptr<Aspose::Cells::System::Drawing::Color> color1 , intrusive_ptr<Aspose::Cells::System::Drawing::Color> color2 , Aspose::Cells::Drawing::GradientStyleType gradientStyleType , Aspose::Cells::System::Int32 variant)=0;

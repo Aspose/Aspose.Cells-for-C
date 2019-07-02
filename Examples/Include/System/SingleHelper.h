@@ -18,9 +18,12 @@ namespace Aspose {
 				static const Single MaxValue;
 				static const Single Epsilon;
 				static const Double MaxValueEpsilon;
+				static const Single NegativeInfinity;
+				static const Single	PositiveInfinity;
 
 				static bool IsNaN(Single f);
 				static bool IsInfinity(Single f);
+				static bool IsPositiveInfinity(Single f);
 				
 				static Single Parse(StringPtr s);
 				static Single Parse(StringPtr s, intrusive_ptr<NumberFormatInfo> provider);

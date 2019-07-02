@@ -165,7 +165,11 @@ namespace Aspose {
 				{
 					return _len;
 				}
-				inline T* At(int index)
+				inline T*   At(int index)
+				{
+					return _p[index];
+				}
+				inline T* & AtAddr(int index)////
 				{
 					return _p[index];
 				}

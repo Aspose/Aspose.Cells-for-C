@@ -36,6 +36,11 @@ namespace Aspose {
 						virtual void SetNewLine(StringPtr value);
 						virtual void Flush();
 						virtual void Write(Char value);
+						
+						virtual void Write(Char* str);
+						virtual void Write(Char* str, Int32 index, Int32 count);
+						virtual void Write(String* wstr);
+						
 						virtual void Write(intrusive_ptr<CString> buffer);
 						virtual void Write(intrusive_ptr<CString> buffer, Int32 index, Int32 count);
 						virtual void Write(bool value);

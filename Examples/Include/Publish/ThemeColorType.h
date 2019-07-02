@@ -2,10 +2,8 @@
 namespace Aspose {
 namespace Cells {
 			/// <summary>
-			/// Enumerates  the theme color types.
+			/// Enumerates the theme color types.
 			/// </summary>
-			/// 
-			/// 
 	enum ThemeColorType 
 	{
 
@@ -37,8 +35,6 @@ namespace Cells {
 			/// Inner used.
 			/// A color used in theme definitions which means to use the color of the style.
 			/// </summary>
-			/// 
-			/// 
 			ThemeColorType_StyleColor ,
 	};
 

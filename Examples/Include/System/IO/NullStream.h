@@ -26,15 +26,15 @@ namespace Aspose {
 						return --ref_count_;
 					}
 
-					bool GetCanRead()
+					bool CanRead()
 					{
 						return true;
 					}
-					bool GetCanWrite()
+					bool CanWrite()
 					{
 						return true;
 					}
-					bool GetCanSeek()
+					bool CanSeek()
 					{
 						return true;
 					}

@@ -2,6 +2,7 @@
 #define _SYSTEM_ZIP_ZIPOPTIONS_H_
 
 #include <stdint.h>
+#include "System/Zip/CompressionMode.h"
 
 namespace Aspose {
 	namespace Cells {
@@ -86,18 +87,6 @@ namespace Aspose {
 				/// string matching.
 				/// </summary>
 				CompressionStrategy_HuffmanOnly = 2,
-			};
-
-			enum CompressionMode
-			{
-				/// <summary>
-				/// Used to specify that the stream should compress the data.
-				/// </summary>
-				CompressionMode_Compress = 0,
-				/// <summary>
-				/// Used to specify that the stream should decompress the data.
-				/// </summary>
-				CompressionMode_Decompress = 1,
 			};
 
 			//////////////////// zipfile options //////////////////////////

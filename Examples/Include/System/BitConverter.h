@@ -23,7 +23,7 @@ namespace Aspose {
 				static intrusive_ptr<Array1D<Byte>> GetBytes(Int64 value);
 				static intrusive_ptr<Array1D<Byte>> GetBytes(Int16 value);
 				static intrusive_ptr<Array1D<Byte>> GetBytes(UInt32 value);
-				//static intrusive_ptr<Array1D<Byte>> GetBytes(UInt16 value);
+				static intrusive_ptr<Array1D<Byte>> GetBytes(UInt16 value);
 				static Int16 ToInt16(intrusive_ptr<Array1D<Byte>> value, Int32 startIndex);
 				static Int32 ToInt32(intrusive_ptr<Array1D<Byte>> value, Int32 startIndex);
 				static Int64 ToInt64(intrusive_ptr<Array1D<Byte>> value, Int32 startIndex);

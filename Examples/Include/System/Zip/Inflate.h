@@ -74,7 +74,7 @@ namespace Aspose {
 				int32_t end;                                 // one byte after sliding window
 				int32_t readAt;                              // window read pointer
 				int32_t writeAt;                             // window write pointer
-				ObjectPtr checkfn;						// check function
+				Object* checkfn;						// check function
 				uint32_t check;                              // check on output
 
 				intrusive_ptr<InfTree> inftree;

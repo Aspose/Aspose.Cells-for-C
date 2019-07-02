@@ -10,10 +10,12 @@
 #include "System/Int16.h"
 #include "System/Int64.h"
 #include "System/Double.h"
+#include "System/Single.h"
 #include "System/String.h"
 #include "System/DateTime.h"
 #include "System/TypeDefBString.h"
 #include "System/Base64FormattingOptions.h"
+#include "System/Globalization/NumberFormatInfo.h"
 
 namespace Aspose {
 	namespace Cells {
@@ -36,6 +38,7 @@ namespace Aspose {
 				static Int32 ToInt32(StringPtr value);
 				static Int32 ToInt32(StringPtr value, Int32 fromBase);
 				static Int32 ToInt32(ObjectPtr value);
+				static Int32 ToInt32(Int32 value);
 				static Int16 ToInt16(bool value);
 				static Int16 ToInt16(Char value);
 				static Int16 ToInt16(Double value);
@@ -63,7 +66,10 @@ namespace Aspose {
 				static Double ToDouble(Char value);
 				static Double ToDouble(Int32 value);
 				static Double ToDouble(StringPtr value);
+				static Double ToDouble(StringPtr value, intrusive_ptr<NumberFormatInfo> provider);
 				static Double ToDouble(ObjectPtr value);
+				static Single ToSingle(ObjectPtr value);
+				static Single ToSingle(Int32 value);
 				static StringPtr ToString(bool value);
 				static StringPtr ToString(Char value);
 				static StringPtr ToString(Double value);
@@ -73,6 +79,7 @@ namespace Aspose {
 				static StringPtr ToString(ObjectPtr value);
 				static DateTimePtr ToDateTime(StringPtr value);
 				static DateTimePtr ToDateTime(ObjectPtr value);
+				static Char ToChar(StringPtr value);
 
 				static StringPtr ToBase64String(intrusive_ptr<BString> inArray);
 				static StringPtr ToBase64String(intrusive_ptr<BString> inArray, Base64FormattingOptions options);

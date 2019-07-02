@@ -1,45 +1,17 @@
 #ifndef _SYSTEM_ZIP_ZIPOUTPUTSTREAM_H_
 #define _SYSTEM_ZIP_ZIPOUTPUTSTREAM_H_
 
-#include "System/Zip/ZipFile.h"
 #include "System/Zip/SharedUtilities.h"
 #include "System/Zip/CrcCalculatorStream.h"
 #include "System/Zip/Zip64Option.h"
 #include "System/Zip/CompressionLevel.h"
+#include "System/Zip/ZipOptions.h"
+#include "System/Zip/ZipEntry.h"
 
 namespace Aspose {
 	namespace Cells {
 		namespace OpenXML
 		{
-			class ZipOutputStream;
-			class ZipContainer : public reference_counter {
-			public:
-				ZipContainer(ZipFile* zipfile) {
-					_zf = zipfile;
-					_zos = NULL;
-				}
-				ZipContainer(ZipOutputStream* zos) {
-					_zos = zos;
-					_zf = NULL;
-				}
-
-				ZipFile* GetZipFile() {
-					return _zf;
-				}
-
-				ZipOutputStream* GetZipOutputStream() {
-					return _zos;
-				}
-
-				Zip64Option GetZip64();
-				int32_t GetCodecBufferSize();
-				CompressionStrategy GetStrategy();
-
-			private:
-				ZipFile*			_zf;
-				ZipOutputStream*	_zos;
-			};
-
 			class ASPOSE_CELLS_API ZipOutputStream : public Stream {
 			public:
 				ZipOutputStream(StreamPtr stream);
@@ -68,9 +40,9 @@ namespace Aspose {
 				int32_t Read(intrusive_ptr<BString> buffer, int32_t offset, int32_t count) { throw NotImplementedException(); }
 				void Write(intrusive_ptr<BString> buffer, int32_t offset, int32_t count);
 					
-				bool GetCanRead() { return false; }
-				bool GetCanWrite() { return true; }
-				bool GetCanSeek() { return false; }
+				bool CanRead() { return false; }
+				bool CanWrite() { return true; }
+				bool CanSeek() { return false; }
 
 				int64_t GetLength() { throw NotImplementedException(); }
 				void SetLength(int64_t length) { throw NotImplementedException(); }

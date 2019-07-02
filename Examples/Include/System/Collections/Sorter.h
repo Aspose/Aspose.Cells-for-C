@@ -18,6 +18,10 @@ namespace Aspose {
 					template <class T>
 					static void QuickSort(T* array, int left, int right, intrusive_ptr<IComparer> comparer)
 					{
+						if (left < 0 || right < 0)
+						{
+							return;
+						}
 						do
 						{
 							int num = left;
@@ -65,6 +69,10 @@ namespace Aspose {
 					template <class T>
 					static void QuickSort2(T* array, int left, int right)
 					{
+						if (left < 0 || right < 0)
+						{
+							return;
+						}
 						do
 						{
 							int num = left;

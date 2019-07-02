@@ -49,6 +49,8 @@ namespace Aspose {
 				static StringPtr ToString(Double self, StringPtr format, intrusive_ptr<NumberFormatInfo> provider);
 				static StringPtr ToString(Double self, StringPtr format, intrusive_ptr<CultureInfo> provider);
 
+				static bool Equals(Double d1, Double d2);
+
 			};
 		}
 	}

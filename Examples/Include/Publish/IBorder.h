@@ -5,6 +5,7 @@
 
 namespace Aspose {
 	namespace Cells {
+		class IThemeColor;
 		enum CellBorderType;
 	}
 }
@@ -29,53 +30,46 @@ namespace Cells{
 			/// workbook->GetIWorksheets()->Add();
 			/// intrusive_ptr<Aspose::Cells::IWorksheet> worksheet = workbook->GetIWorksheets()->GetObjectByIndex(0);
 			/// intrusive_ptr<Aspose::Cells::ICell> cell = worksheet->GetICells()->GetObjectByIndex(new String("A1"));
-			/// cell->SetStyle(style);
+			/// cell->SetIStyle(style);
 			/// 
 			/// </code>
-			/// 
 			/// </example>
-			/// 
-			/// 
 	class ASPOSE_CELLS_API IBorder : public Aspose::Cells::System::Object
 	{
 		public:
 			/// <summary>
+			///  Gets the theme color of the border.
+			/// </summary>
+			 virtual intrusive_ptr<Aspose::Cells::IThemeColor> 		GetIThemeColor()=0;
+			/// <summary>
+			///  Sets the theme color of the border.
+			/// </summary>
+			 virtual void 		SetIThemeColor(intrusive_ptr<Aspose::Cells::IThemeColor> value)=0;
+			/// <summary>
 			/// Gets the <see cref="System.Drawing.Color" />
 			///  of the border.
 			/// </summary>
-			/// 
-			/// 
 			 virtual intrusive_ptr<Aspose::Cells::System::Drawing::Color> GetColor()=0;
 			/// <summary>
 			/// Sets the <see cref="System.Drawing.Color" />
 			///  of the border.
 			/// </summary>
-			/// 
-			/// 
 			 virtual void SetColor(intrusive_ptr<Aspose::Cells::System::Drawing::Color> value)=0;
 			/// <summary>
 			/// Gets the color with a 32-bit ARGB value.
 			/// </summary>
-			/// 
-			/// 
 			 virtual Aspose::Cells::System::Int32 GetArgbColor()=0;
 			/// <summary>
 			/// Sets the color with a 32-bit ARGB value.
 			/// </summary>
-			/// 
-			/// 
 			 virtual void SetArgbColor(Aspose::Cells::System::Int32 value)=0;
 			/// <summary>
 			/// Gets the cell border type.
 			/// </summary>
-			/// 
-			/// 
 			 virtual Aspose::Cells::CellBorderType GetLineStyle()=0;
 			/// <summary>
 			/// Sets the cell border type.
 			/// </summary>
-			/// 
-			/// 
 			 virtual void SetLineStyle(Aspose::Cells::CellBorderType value)=0;
 
 	};
